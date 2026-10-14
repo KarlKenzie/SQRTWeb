@@ -35,7 +35,7 @@ body {
 .hero {
   position: relative;
   color: #fff;
-  background: var(--navy) url("../assets/campus.jpg") center / cover no-repeat;
+  background: var(--navy) url("../img/campus.jpg") center / cover no-repeat;
   padding: clamp(32px, 5.2vw, 100px);
   display: flex;
   flex-direction: column;
