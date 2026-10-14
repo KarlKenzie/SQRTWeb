@@ -11,21 +11,18 @@
 </head>
 <body>
   <main class="page">
-    <!-- Left: brand panel -->
-    <section class="hero" aria-label="About CARE">
+    <section class="hero hero--oneline" aria-label="About CARE">
       <div class="hero__brand">
         <h1 class="hero__logo">CARE</h1>
         <p class="hero__name">Campus Assistance &amp; Response Environment</p>
         <p class="hero__campus">CTU - Consolacion Campus</p>
       </div>
-
       <div class="hero__copy">
         <h2 class="hero__headline">Student medical information for <span>emergency response.</span></h2>
         <p class="hero__text">Connecting responders with essential student medical information when it matters most.</p>
       </div>
     </section>
 
-    <!-- Right: sign-in form -->
     <section class="signin" aria-labelledby="signin-title">
       <div class="signin__box">
         <h2 id="signin-title" class="signin__title">Sign in</h2>
@@ -39,7 +36,7 @@
         <form id="signin-form" novalidate>
           <div class="field">
             <label for="username">Username</label>
-            <input id="username" name="username" type="text" autocomplete="username" value="sqrt.mvillanueva" />
+            <input id="username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" />
             <p class="field__error" id="username-error" role="alert"></p>
           </div>
 
@@ -52,7 +49,7 @@
             <p class="field__error" id="password-error" role="alert"></p>
           </div>
 
-          <a href="#" class="forgot" id="forgot">Forgot password?</a>
+          <a href="forgot-password.html" class="forgot" id="forgot">Forgot password?</a>
 
           <button type="submit" class="submit" id="submit">Sign in as SQRT Responder</button>
           <p class="form__message" id="form-message" role="status" aria-live="polite"></p>
@@ -61,6 +58,7 @@
     </section>
   </main>
 
+  <script src="../js/api.js"></script>
   <script src="../js/login.js"></script>
 </body>
 </html>

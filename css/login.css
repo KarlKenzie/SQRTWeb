@@ -67,7 +67,10 @@ body {
 }
 
 .hero__copy {
-  margin-bottom: 32.5vh;
+  position: absolute;
+  top: 43vh;
+  left: clamp(32px, 5.2vw, 100px);
+  right: 32px;
   max-width: 780px;
 }
 
@@ -80,8 +83,13 @@ body {
 .hero__headline span { color: var(--gold); }
 
 @media (min-width: 1500px) {
-  .hero__headline { white-space: nowrap; }
+  .hero--oneline .hero__headline { white-space: nowrap; }
 }
+
+/* two-line headline used on the password screens */
+.hero--stacked .hero__headline { font-size: clamp(24px, 2vw, 38px); }
+.hero--stacked .hero__headline span { display: block; }
+.hero--stacked .hero__text { max-width: 480px; margin-top: clamp(24px, 3.2vh, 40px); }
 
 .hero__text {
   margin: clamp(32px, 4.4vh, 52px) 0 0;
@@ -219,6 +227,8 @@ body {
 .submit:focus-visible { outline: 3px solid rgba(27, 95, 168, 0.35); outline-offset: 2px; }
 .submit:disabled { opacity: 0.7; cursor: progress; }
 
+.form__message.is-error { color: var(--error); }
+
 .form__message {
   margin: 14px 0 0;
   font-size: 15px;
@@ -236,7 +246,7 @@ body {
     padding: 28px 24px 32px;
     gap: 28px;
   }
-  .hero__copy { margin-bottom: 0; }
+  .hero__copy { position: static; }
   .hero__text { margin-top: 14px; }
 
   .signin { padding: 32px 20px 48px; }

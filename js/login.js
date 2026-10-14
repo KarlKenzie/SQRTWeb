@@ -1,3 +1,4 @@
+/* Sign in page (index.html) */
 (function () {
   "use strict";
 
@@ -12,6 +13,19 @@
 
   var role = "SQRT Responder";
 
+  // Already signed in? Skip straight to the dashboard.
+  CareApi.get("/api/me").then(function (r) {
+    if (r.ok && r.data.redirect) location.replace(r.data.redirect);
+  });
+
+  // Coming back from "Password saved": prefill the username, focus password.
+  var prefill = CareApi.flash.get("prefillUser");
+  if (prefill) {
+    username.value = prefill;
+    CareApi.flash.clear("prefillUser");
+    password.focus();
+  }
+
   // ---- Role tabs ----
   tabs.forEach(function (tab) {
     tab.addEventListener("click", function () {
@@ -22,7 +36,7 @@
       });
       role = tab.dataset.role;
       submit.textContent = "Sign in as " + role;
-      message.textContent = "";
+      showMessage("");
       clearError(username);
       clearError(password);
     });
@@ -37,20 +51,30 @@
     toggle.setAttribute("aria-label", show ? "Hide password" : "Show password");
   });
 
-  // ---- Validation helpers ----
+  // ---- Helpers ----
   function setError(input, text) {
-    var field = input.closest(".field");
-    field.classList.add("has-error");
+    input.closest(".field").classList.add("has-error");
     document.getElementById(input.id + "-error").textContent = text;
   }
   function clearError(input) {
-    var field = input.closest(".field");
-    field.classList.remove("has-error");
+    input.closest(".field").classList.remove("has-error");
     document.getElementById(input.id + "-error").textContent = "";
+  }
+  function showMessage(text, isError) {
+    message.textContent = text;
+    message.classList.toggle("is-error", !!isError);
   }
 
   [username, password].forEach(function (input) {
-    input.addEventListener("input", function () { clearError(input); });
+    input.addEventListener("input", function () {
+      clearError(input);
+      showMessage("");
+    });
+  });
+
+  // ---- Forgot password: remember who is asking, then follow the link ----
+  forgot.addEventListener("click", function () {
+    CareApi.flash.set("resetUser", username.value.trim());
   });
 
   // ---- Submit ----
@@ -58,32 +82,29 @@
     e.preventDefault();
     var ok = true;
 
-    if (!username.value.trim()) {
-      setError(username, "Enter your username.");
-      ok = false;
-    }
-    if (!password.value) {
-      setError(password, "Enter your password.");
-      ok = false;
-    }
+    if (!username.value.trim()) { setError(username, "Enter your username."); ok = false; }
+    if (!password.value) { setError(password, "Enter your password."); ok = false; }
     if (!ok) {
       (username.value.trim() ? password : username).focus();
       return;
     }
 
     submit.disabled = true;
-    message.textContent = "Signing in…";
+    showMessage("Signing in…");
 
-    // TODO: replace with a real request to your backend, e.g.
-    // fetch("/api/login", { method: "POST", body: JSON.stringify({ role, username, password }) })
-    setTimeout(function () {
+    CareApi.post("/api/login", {
+      role: role,
+      username: username.value.trim(),
+      password: password.value
+    }).then(function (r) {
+      if (r.ok) {
+        location.href = r.data.redirect;
+        return;
+      }
       submit.disabled = false;
-      message.textContent = "Demo only: no server is connected yet (" + role + ").";
-    }, 700);
-  });
-
-  forgot.addEventListener("click", function (e) {
-    e.preventDefault();
-    message.textContent = "Accounts are issued by the University Clinic. Please contact them to reset your password.";
+      password.value = "";
+      password.focus();
+      showMessage(r.data.error || "Could not sign in. Please try again.", true);
+    });
   });
 })();
