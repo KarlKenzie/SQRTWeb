@@ -8,6 +8,14 @@
   /* A reset link can carry a one-time token; the back end decides what it means. */
   var token = ui.param("token");
 
+  $("#toggle-confirm").addEventListener("click", function () {
+    var show = form.confirm.type === "password";
+    form.confirm.type = show ? "text" : "password";
+    this.textContent = show ? "Hide" : "Show";
+    this.setAttribute("aria-pressed", show ? "true" : "false");
+    this.setAttribute("aria-label", show ? "Hide password" : "Show password");
+  });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (form.confirm.value !== password) {

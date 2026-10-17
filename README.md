@@ -55,3 +55,6 @@ redirect to sign-in when nobody is signed in. While it is `false` every page ope
 - `data-no-digits` on a text input blocks numbers (used on every first/last name field).
 - `data-username-check` on the username input limits it to a-z, 0-9, `.` `_` `-`, and checks for duplicates through `CARE.api.checkUsername({ username, excludeId })` -> `{ available: boolean }`. The form will not submit while the name is taken. If create/update fails with error code `USERNAME_TAKEN`, the form shows the same message.
 - To apply either rule to another field, add the attribute to the input and load `validate.js`.
+
+## Forgot password
+`html/forgot-password.html` (30th page) asks for the username and calls `CARE.api.requestPasswordReset({ username })`. The back end should notify the clinic/admin, who issue a temporary password; the user then signs in with it and lands on `new-password.html`. The reply must be the same whether or not the username exists.

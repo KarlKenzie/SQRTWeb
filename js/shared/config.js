@@ -17,6 +17,7 @@ CARE.pages = {
   signIn:               "sign-in.html",
   adminSignIn:          "admin-sign-in.html",
   newPassword:          "new-password.html",
+  forgotPassword:       "forgot-password.html",
   passwordSaved:        "password-saved.html",
 
   sqrtDashboard:        "sqrt-dashboard.html",

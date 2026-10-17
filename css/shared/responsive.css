@@ -31,6 +31,20 @@
   .clinic-duo, .duo { grid-template-columns: 1fr 1fr; }
 }
 
+
+/* ---------- 901px and up : tables always fit their card (columns share the width) ---------- */
+@media (min-width: 901px) {
+  .student-table .table__head,
+  .student-table .table__row { grid-template-columns: minmax(0,2.8fr) minmax(0,1.7fr) minmax(0,4.2fr) minmax(0,1.3fr) minmax(0,1.3fr) 150px; gap: 8px; }
+  .accounts .atable__head, .accounts .atable__row { grid-template-columns: minmax(0,2.8fr) minmax(0,2fr) minmax(0,1.2fr) minmax(0,2.4fr) minmax(0,1.3fr) minmax(0,2.2fr) 140px; gap: 8px; }
+  .logs .atable__head, .logs .atable__row { grid-template-columns: minmax(0,2.2fr) minmax(0,2fr) minmax(0,1.1fr) minmax(0,2fr) minmax(0,2.8fr) minmax(0,1.2fr); gap: 8px; }
+  .reports__head, .reports__row { grid-template-columns: minmax(0,1.2fr) minmax(0,2fr) minmax(0,2.8fr) minmax(0,1.9fr) minmax(0,2.2fr) minmax(0,.4fr); gap: 8px; }
+  .table__row > span, .atable__row > span, .reports__row > span { min-width: 0; overflow-wrap: anywhere; }
+  .reports__row span { white-space: normal; }
+  .atable__row .row-actions { display: flex; gap: 8px; justify-content: flex-end; }
+  .atable__head, .atable__row { padding-left: 16px; padding-right: 16px; }
+}
+
 /* ---------- 901px – 1500px : tables squeeze instead of overflowing ---------- */
 @media (min-width: 901px) and (max-width: 1500px) {
   .student-table .table__head,
@@ -169,6 +183,18 @@
   .person { justify-content: flex-end; }
   .program__code { white-space: nowrap; flex: none; }
   .program__name { flex: 1; text-align: right; }
+}
+
+/* Small screens: column names live on each card, but while the list is empty
+   keep them visible as a small strip so the labels never just disappear. */
+@media (max-width: 900px) {
+  *:has(> .table__head):not(:has(.table__row)) > .table__head,
+  *:has(> .atable__head):not(:has(.atable__row)) > .atable__head,
+  *:has(> .reports__head):not(:has(.reports__row)) > .reports__head {
+    display: flex; flex-wrap: wrap; gap: 4px 16px; height: auto; margin: 0; padding: 12px 16px; border-radius: 0;
+    font-size: 13px; font-weight: 600; color: var(--muted); text-align: left;
+  }
+  .table__head > span:empty, .atable__head > span:empty, .reports__head > span:empty { display: none; }
 }
 
 /* ---------- ≤ 600px : phones ---------- */

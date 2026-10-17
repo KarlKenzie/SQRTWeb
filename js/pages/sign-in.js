@@ -18,6 +18,13 @@
     });
   });
 
+  /* Carry the typed username over to the forgot-password page. */
+  var forgot = document.getElementById("forgot-link");
+  if (forgot) forgot.addEventListener("click", function () {
+    var u = form.username.value.trim();
+    forgot.href = CARE.url("forgotPassword", u ? { username: u } : undefined);
+  });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var username = form.username.value.trim(), password = form.password.value;

@@ -45,6 +45,7 @@
     /* auth */
     "signIn",               // { role, username, password } -> { user, mustChangePassword }
     "signOut",              // () -> void
+    "requestPasswordReset", // { username } -> void   (tells the clinic/admin; answer must be the same whether or not the username exists)
     "setPassword",          // { password, token? } -> void
     /* lookups for dropdowns */
     "getPrograms",          // () -> [{ code, name }]
