@@ -1,0 +1,304 @@
+/* ==========================================================================
+   CARE – responsive.css
+   Loaded LAST on every page so it can override the desktop styles.
+
+   Breakpoints
+     ≤ 1500px  narrower sidebar and tighter page padding
+     ≤ 1100px  sidebar becomes a slide-in drawer opened by the 3-line menu
+               button; multi-column cards fall back to fewer columns
+     ≤  900px  tables turn into stacked cards
+     ≤  600px  phones: everything single column, full-width buttons
+   ========================================================================== */
+
+/* The menu button, drawer close button and scrim only exist on small screens */
+.menu-btn, .sidebar__close, .scrim { display: none; }
+
+/* ---------- ≤ 1500px : small laptops ---------- */
+@media (max-width: 1500px) {
+  :root { --sidebar-w: 276px; }
+  .sidebar { padding: 0 20px 28px 22px; }
+  .nav { margin-left: -4px; margin-right: -4px; }
+  .nav__item { font-size: 16px; padding-left: 20px; gap: 14px; }
+  .brand__sub { font-size: 12px; white-space: normal; }
+  .content { padding: 26px 28px 40px; }
+  .header { padding: 0 28px 6px 28px; }
+  .header--no-back { padding-left: 28px; }
+  .header__title { font-size: 28px; line-height: 34px; }
+  .acc__grid { grid-template-columns: 1fr 1fr 1fr; padding-left: 20px; padding-right: 20px; }
+  .rr-summary__facts { grid-template-columns: 1fr 1.3fr 1fr; }
+  .stats { gap: 20px; }
+  .duo { gap: 24px; }
+  .clinic-duo, .duo { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- 901px – 1500px : tables squeeze instead of overflowing ---------- */
+@media (min-width: 901px) and (max-width: 1500px) {
+  .student-table .table__head,
+  .student-table .table__row { grid-template-columns: minmax(0,2.2fr) minmax(0,1.3fr) minmax(0,3fr) minmax(0,.9fr) minmax(0,1fr) auto; gap: 8px; font-size: 15px; }
+  .student-table .table__row, .student-table .table__row strong { font-size: 15px; }
+  .student-table .btn { width: 110px; }
+  .accounts .atable__head, .accounts .atable__row { grid-template-columns: minmax(0,2.2fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,1.8fr) minmax(0,1fr) minmax(0,1.8fr) auto; gap: 8px; font-size: 14px; }
+  .logs .atable__head, .logs .atable__row { grid-template-columns: minmax(0,1.6fr) minmax(0,1.8fr) minmax(0,.9fr) minmax(0,1.5fr) minmax(0,2fr) minmax(0,.9fr); gap: 8px; font-size: 14px; }
+  .reports__head, .reports__row { grid-template-columns: minmax(0,.9fr) minmax(0,1.5fr) minmax(0,2fr) minmax(0,1.4fr) minmax(0,1.6fr) 0 !important; padding-left: 16px !important; gap: 8px; font-size: 15px; }
+  .reports__row span { white-space: normal; }
+  .reports__row .pill { min-width: 0; padding: 0 12px; font-size: 13px; }
+  .filters__grid--students { grid-template-columns: 2fr 1.2fr 1fr 1fr 1.2fr; }
+  .filters .input, .filters .select, .afilters .input, .afilters .select { font-size: 16px; }
+}
+
+/* ---------- ≤ 1100px : tablet + phone, sidebar becomes a drawer ---------- */
+@media (max-width: 1100px) {
+  .main { margin-left: 0; }
+
+  .header {
+    position: sticky; top: 0; z-index: 4;
+    height: auto; min-height: 76px; padding: 12px 20px; gap: 14px;
+  }
+  .header--no-back { padding-left: 20px; }
+  .header__title { font-size: 24px; line-height: 30px; }
+  .header__sub { font-size: 14px; line-height: 20px; }
+
+  /* 3-line menu button */
+  .menu-btn {
+    display: inline-flex; flex: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 0; border: 1px solid #d5dde7; border-radius: var(--radius-sm);
+    background: var(--white); cursor: pointer;
+  }
+  .menu-btn span { display: block; width: 22px; height: 2.5px; border-radius: 2px; background: var(--navy); transition: transform .2s, opacity .2s; }
+  .menu-btn:hover { background: var(--blue-soft); }
+  .menu-btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  body.nav-open .menu-btn span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+  body.nav-open .menu-btn span:nth-child(2) { opacity: 0; }
+  body.nav-open .menu-btn span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+  /* Drawer */
+  .sidebar {
+    width: min(320px, 86vw);
+    padding: 0 22px 28px 22px;
+    transform: translateX(-102%); visibility: hidden;
+    transition: transform .25s ease, visibility 0s linear .25s;
+    box-shadow: none;
+  }
+  body.nav-open .sidebar {
+    transform: none; visibility: visible; transition-delay: 0s;
+    box-shadow: 8px 0 32px rgba(11,37,69,.35);
+  }
+  .sidebar { z-index: 30; }
+  .sidebar .brand { padding-top: 24px; padding-right: 44px; }
+  .sidebar__close {
+    display: grid; place-items: center; position: absolute; top: 18px; right: 14px;
+    width: 40px; height: 40px; padding: 0; border: 0; border-radius: var(--radius-sm);
+    background: rgba(255,255,255,.08); color: var(--white); font-size: 26px; line-height: 1; cursor: pointer;
+  }
+  .sidebar__close:hover { background: rgba(255,255,255,.16); }
+  .scrim {
+    display: block; position: fixed; inset: 0; z-index: 25;
+    background: rgba(11,37,69,.5); opacity: 0; visibility: hidden;
+    transition: opacity .25s ease, visibility 0s linear .25s;
+  }
+  body.nav-open .scrim { opacity: 1; visibility: visible; transition-delay: 0s; }
+  body.nav-open { overflow: hidden; }
+  .sidebar__foot { padding-top: 24px; }
+  .signout { margin-top: 18px; }
+
+  .content { padding: 20px; }
+
+  /* multi-column blocks */
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .duo, .clinic-duo { grid-template-columns: 1fr !important; }
+  .acc__grid { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .rr-summary__facts { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .rr-grid { gap: 20px 32px; }
+  .sform__row4 { grid-template-columns: 1fr 1fr !important; }
+  .filters__grid--students { grid-template-columns: 1fr 1fr 1fr; }
+  .filters__grid--students .field:first-child { grid-column: 1 / -1; }
+  .afilters__grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* roomier padding goes */
+  .form-card { padding: 28px; }
+  .record { padding: 28px; }
+  .sform, .aform { padding-left: 20px; padding-right: 20px; }
+  .sortbar { padding: 20px 20px 24px; flex-wrap: wrap; }
+  .recent__head, .recent__row { padding-left: 20px; padding-right: 20px; }
+  .panel { padding: 24px 20px; }
+  .banner--plain { padding: 20px; }
+  .record__updated { white-space: normal; }
+
+  /* auth screens: photo becomes a banner above the form */
+  .auth { flex-direction: column; min-height: 100vh; }
+  .auth__hero {
+    width: 100%; min-height: 0; padding: 36px 32px 40px; background-position: center 70%;
+  }
+  .auth__brand .brand__mark { font-size: 26px; }
+  .auth__message { position: static; transform: none; margin-top: 28px; left: auto; right: auto; }
+  .auth__headline, .auth__message--wrap .auth__headline { font-size: 24px; line-height: 32px; max-width: 560px; }
+  .auth__lead, .auth__message--wrap .auth__lead { margin-top: 12px; font-size: 16px; line-height: 22px; max-width: 520px; }
+  .auth__panel { flex: 1; padding: 36px 24px 48px; }
+  .auth__form, .auth__form--wide, .ps { width: 100%; max-width: 520px; }
+}
+
+/* ---------- ≤ 900px : tables turn into cards ---------- */
+@media (max-width: 900px) {
+  .table__head, .atable__head, .reports__head { display: none; }
+
+  .table__row, .atable__row, .reports__row {
+    display: grid !important; grid-template-columns: 1fr !important;
+    gap: 8px; padding: 16px !important; min-height: 0 !important;
+    text-align: left !important; font-size: 15px !important;
+  }
+  .table__row > span, .atable__row > span, .reports__row > span {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    min-width: 0; white-space: normal !important; text-align: right; overflow-wrap: anywhere;
+  }
+  /* label comes from the column header (data-label is set by layout.js) */
+  .table__row > span[data-label]:not([data-label=""])::before,
+  .atable__row > span[data-label]:not([data-label=""])::before,
+  .reports__row > span[data-label]:not([data-label=""])::before {
+    content: attr(data-label); flex: none; max-width: 45%;
+    font-size: 13px; font-weight: 600; text-align: left; color: var(--muted);
+  }
+  /* empty last cell = action column */
+  .table__row > span:empty, .atable__row > span:empty, .reports__row > span:empty { display: none; }
+  .table__row .btn, .atable__row .btn { width: 100% !important; }
+  .row-actions { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+  .row-actions .btn { flex: 1 1 120px; }
+  .reports__row { margin-bottom: 10px; }
+  .reports { padding: 12px 12px 20px; }
+  .atable__row, .table__row { border-bottom: 1px solid #ebecef; }
+  .atable__row:nth-child(even), .table__row:nth-child(even) { background: #fafbfd; }
+  .person { justify-content: flex-end; }
+  .program__code { white-space: nowrap; flex: none; }
+  .program__name { flex: 1; text-align: right; }
+}
+
+/* ---------- ≤ 600px : phones ---------- */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+
+  .header { min-height: 64px; padding: 10px 14px; gap: 10px; }
+  .header__title { font-size: 20px; line-height: 26px; }
+  .header__sub { font-size: 13px; line-height: 18px; }
+  .header__action { margin-left: 0; width: auto !important; height: 38px !important; font-size: 14px !important; padding: 0 12px !important; }
+  .header__action .icon { display: none; }
+  .back-btn, .back-btn .icon { width: 28px; height: 28px; }
+  .menu-btn { width: 42px; height: 42px; }
+
+  .content { padding: 14px 12px 32px; gap: 12px; }
+  .card__title { font-size: 18px; line-height: 24px; }
+  .card__sub { font-size: 14px; line-height: 20px; }
+
+  /* stacked form-ish rows */
+  .find__row { flex-direction: column; align-items: stretch; gap: 12px !important; }
+  .find__row .input, .panel .find__row .input { height: 50px; flex: none; }
+  .find__row .btn, .panel .find__row .btn, .banner--plain .btn, .banner--slim .btn { width: 100% !important; }
+  .banner, .banner--plain, .banner--slim { flex-direction: column; align-items: stretch; gap: 14px; padding: 16px !important; min-height: 0; }
+  .banner .btn { width: 100%; }
+  .panel__actions { flex-direction: column; gap: 10px; }
+  .panel__actions .btn { width: 100%; }
+  .recent__head { flex-direction: column; gap: 14px; }
+  .recent__head .btn { width: 100% !important; height: 44px !important; font-size: 16px !important; }
+  .recent__row { flex-direction: column; align-items: flex-start; gap: 8px; padding-top: 14px; padding-bottom: 14px; }
+
+  .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat { padding: 14px 16px; min-height: 0; }
+  .stat__label, .stat__sub { font-size: 14px; line-height: 20px; }
+  .stat__num { font-size: 26px; line-height: 32px; }
+  .shortcut, .activity { padding-left: 16px; padding-right: 16px; }
+  .shortcut__actions { flex-wrap: wrap; }
+  .act__row { flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px 0; }
+  .act__when { gap: 12px; flex-wrap: wrap; }
+
+  /* record / detail pages */
+  .record, .form-card, .sform, .aform { padding: 18px 16px; }
+  .record--compact { padding: 18px 12px 0; }
+  .record__head, .form-card__head { flex-direction: column; gap: 12px; }
+  .record__right { align-items: flex-start; width: 100%; }
+  .record__updated { text-align: left; }
+  .record__name { font-size: 24px; line-height: 30px; }
+  .record__meta, .record__value, .infobox__value { font-size: 16px; }
+  .record__rule { margin: 22px 0 24px; }
+  .record__boxes, .record--compact .record__boxes { grid-template-columns: 1fr; gap: 12px; margin: 0; }
+  .infobox { min-height: 0; padding: 16px; gap: 14px; }
+  .infobox .icon { width: 32px; height: 32px; }
+  .record__details { grid-template-columns: 1fr; gap: 18px; margin-top: 26px; }
+  .rr-summary, .rr-block { padding: 20px 16px; }
+  .rr-summary__facts, .rr-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
+  .rr-note { padding: 14px 16px; margin-top: 24px; }
+  .acc__top { flex-wrap: wrap; padding: 20px 16px 12px; gap: 16px; }
+  .acc__grid { grid-template-columns: 1fr; padding: 4px 16px 20px; }
+  .acc-act { padding: 18px 16px 8px; }
+
+  /* forms */
+  .form-row, .sform__row2, .sform__row4, .aform__grid, .filters__grid, .filters__grid--students, .afilters__grid {
+    grid-template-columns: 1fr !important;
+  }
+  .filters, .afilters { padding: 18px 16px 20px; }
+  .form-card .input, .filters .input, .filters .select, .afilters .input, .afilters .select { height: 50px; font-size: 16px; }
+  .input, .select { font-size: 16px; } /* 16px stops iOS zooming into fields */
+  .pw-box { flex-wrap: wrap; }
+  .pw-box .btn { width: 100%; }
+
+  /* button rows go full width */
+  .button-row, .form-actions, .aform__actions, .sform__actions, .modal__actions { flex-direction: column-reverse; align-items: stretch; gap: 10px; }
+  .button-row .btn, .form-actions .btn, .aform__actions .btn, .sform__actions .btn, .modal__actions .btn,
+  .btn--wide, .btn[style*="min-width"] { width: 100% !important; min-width: 0 !important; }
+  .record + .button-row, .button-row { flex-direction: column; }
+  .card .btn--lg, .btn--block { width: 100%; }
+  .acc__actions { flex-wrap: wrap; padding: 12px 16px 16px; }
+  .acc__actions .btn { flex: 1 1 100%; }
+
+  .sortbar { flex-direction: column; align-items: stretch; gap: 8px; }
+  .sortbar .select { width: 100% !important; height: 44px; }
+
+  .pill, .pill--line { min-width: 0; }
+  .source-chip { max-width: 100%; height: auto; min-height: 36px; padding: 6px 14px; white-space: normal; text-align: left; }
+
+  /* modal */
+  .overlay { padding: 14px; align-items: end; }
+  .modal { width: 100%; max-height: 92vh; overflow-y: auto; }
+  .modal__facts { grid-template-columns: 1fr 1fr; }
+  .modal__title { font-size: 20px; line-height: 26px; }
+
+  .toast-stack { left: 12px; right: 12px; bottom: 12px; }
+  .toast { max-width: none; }
+
+  /* auth */
+  .auth__hero { padding: 24px 20px 28px; }
+  .auth__brand .brand__sub { white-space: normal; }
+  .auth__headline, .auth__message--wrap .auth__headline { font-size: 20px; line-height: 28px; }
+  .auth__lead { display: none; }
+  .auth__message { margin-top: 18px; }
+  .auth__panel { padding: 28px 18px 40px; }
+  .auth__title { font-size: 26px; line-height: 32px; }
+  .auth__sub { font-size: 16px; }
+  .auth__form .field__label { font-size: 16px; }
+  .auth__form .input { height: 52px; font-size: 16px; }
+  .auth__submit { height: 52px; font-size: 16px; }
+  .auth__link-row a { font-size: 16px; }
+  .tabs__btn { height: 48px; font-size: 15px; }
+  .np__title { font-size: 30px; line-height: 38px; }
+  .np__sub { font-size: 16px; line-height: 24px; }
+  .np__card { padding: 26px 12px 24px; border-radius: 22px; }
+  .np__label { font-size: 14px; }
+  .np__value { font-size: 26px; line-height: 34px; letter-spacing: .16em; }
+  .np__field-label { margin-top: 28px; font-size: 17px; }
+  .np__save { height: 56px; font-size: 20px; margin-top: 26px; }
+  .np__cancel { font-size: 17px; margin-top: 20px; }
+  .ps__title { font-size: 26px; line-height: 34px; margin-top: 26px; }
+  .ps__sub { font-size: 16px; }
+  .ps__label { font-size: 15px; }
+  .ps__value { font-size: 22px; letter-spacing: .14em; }
+  .ps__btn { height: 54px; font-size: 20px; }
+}
+
+/* ---------- ≤ 380px : very small phones ---------- */
+@media (max-width: 380px) {
+  .stats { grid-template-columns: 1fr; }
+  .modal__facts { grid-template-columns: 1fr; }
+  .header__title { font-size: 18px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar, .scrim, .menu-btn span { transition: none !important; }
+}

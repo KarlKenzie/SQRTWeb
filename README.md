@@ -44,3 +44,9 @@ redirect to sign-in when nobody is signed in. While it is `false` every page ope
 - Typos fixed: "Open reocrd", "Add student secord", "Official reocrd", "SQR-014", "Sign in  again".
 - Sidebar label is "Search" on every SQRT page (the design mixed "Search" / "Student search").
 - Account page shows "Reactivate" (not "Deactivate") when the account is inactive.
+
+## Responsive / mobile
+`css/shared/responsive.css` (linked last on every page) handles all screen sizes.
+- 1100px and below: the sidebar becomes a slide-in drawer opened by the 3-line menu button in the header (built by `js/shared/layout.js`).
+- 900px and below: tables become stacked cards (column titles are copied onto each cell by `layout.js`).
+- 600px and below: single column layouts and full-width buttons.

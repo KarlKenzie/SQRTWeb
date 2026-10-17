@@ -1,4 +1,7 @@
-
+/* ==========================================================================
+   CARE – admin-table.css : filters, tables and notes on administrator lists
+   Used by admin-user-accounts.html and admin-access-logs.html
+   ========================================================================== */
 .afilters { padding: 30px 30px 24px; }
 .afilters__grid { display: grid; gap: 16px; align-items: end; }
 .afilters .field__label { font-size: 18px; }
