@@ -11,6 +11,9 @@
                               -> { available: boolean }
                           The form cannot be submitted while the name is taken.
 
+     data-email-check     email field: valid format, no spaces, and a duplicate check through
+                          CARE.api.checkEmail({ email, excludeId }) -> { available: boolean }
+
    The server must still enforce both rules; it can answer a create/update
    with an error whose code is "USERNAME_TAKEN" and the form will show it.
    ========================================================================== */
@@ -118,8 +121,64 @@
     input._careUsername = { markTaken: function () { set("taken", TAKEN_MSG); } };
   }
 
+  /* ---------- email: format + duplicate check ---------- */
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var EMAIL_DOMAIN = "gmail.com"; // only Gmail addresses are accepted
+  var EMAIL_BAD_MSG = "Email must be a Gmail address ending in @gmail.com.";
+  function emailOk(v) { return EMAIL_RE.test(v) && v.toLowerCase().slice(-(EMAIL_DOMAIN.length + 1)) === "@" + EMAIL_DOMAIN && v.indexOf("@") === v.length - EMAIL_DOMAIN.length - 1; }
+  var EMAIL_TAKEN_MSG = "This email is already used by another account.";
+
+  function initEmail(input) {
+    var form = input.form, seq = 0, timer, state = "idle"; // idle | bad | taken | free
+    var excludeId = CARE.ui.param ? CARE.ui.param("id") : null;
+
+    function set(s, text, kind) {
+      state = s;
+      input.classList.toggle("is-invalid", s === "bad" || s === "taken");
+      message(input, text, kind);
+    }
+    function check() {
+      var v = input.value.trim().toLowerCase();
+      if (!v) { set("idle", ""); return; }
+      if (!emailOk(v)) { set("bad", EMAIL_BAD_MSG); return; }
+      var mine = ++seq;
+      CARE.api.checkEmail({ email: v, excludeId: excludeId || undefined }).then(function (res) {
+        if (mine !== seq) return;
+        if (res && res.available === false) set("taken", EMAIL_TAKEN_MSG);
+        else if (res && res.available === true) set("free", "Email is available.", "ok");
+        else set("idle", "");
+      }, function () { if (mine === seq) set("idle", ""); });
+    }
+
+    addHint(input, "Must be a Gmail address, like name@gmail.com. No spaces. Must be unique.");
+    input.addEventListener("input", function () {
+      var v = input.value;
+      if (/\s/.test(v)) { input.value = v.replace(/\s+/g, ""); }
+      seq++; state = "idle"; input.classList.remove("is-invalid"); message(input, "");
+      clearTimeout(timer); timer = setTimeout(check, 500);
+    });
+    input.addEventListener("blur", function () { clearTimeout(timer); if (state === "idle") check(); });
+
+    if (form) form.addEventListener("submit", function (e) {
+      var v = input.value.trim();
+      if (v && !emailOk(v)) set("bad", EMAIL_BAD_MSG);
+      if (state === "taken" || state === "bad") {
+        e.preventDefault(); e.stopImmediatePropagation(); input.focus();
+        var err = document.getElementById("form-error");
+        if (err) err.textContent = state === "taken" ? EMAIL_TAKEN_MSG : EMAIL_BAD_MSG;
+      }
+    });
+    input._careEmail = { markTaken: function () { set("taken", EMAIL_TAKEN_MSG); } };
+  }
+
   /* A create/update failed: if it was a duplicate username, show it on the field. */
-  V.serverError = function (err, usernameInput, errorEl) {
+  V.serverError = function (err, usernameInput, errorEl, emailInput) {
+    if (err && err.code === "EMAIL_TAKEN" && emailInput) {
+      if (emailInput._careEmail) emailInput._careEmail.markTaken();
+      if (errorEl) errorEl.textContent = EMAIL_TAKEN_MSG;
+      emailInput.focus();
+      return true;
+    }
     if (err && err.code === "USERNAME_TAKEN" && usernameInput) {
       if (usernameInput._careUsername) usernameInput._careUsername.markTaken();
       if (errorEl) errorEl.textContent = TAKEN_MSG;
@@ -135,6 +194,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     Array.prototype.forEach.call(document.querySelectorAll("[data-no-digits]"), initNoDigits);
     Array.prototype.forEach.call(document.querySelectorAll("[data-username-check]"), initUsername);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-email-check]"), initEmail);
   });
 
   CARE.validate = V;

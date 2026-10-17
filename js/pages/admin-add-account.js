@@ -48,7 +48,7 @@
     ui.busy(btn, CARE.api.createAccount(data)).then(function (a) {
       CARE.go("adminAccountDetail", { id: a.id, notice: "created" });
     }).catch(function (err) {
-      if (CARE.validate.serverError(err, form.username, error)) return;
+      if (CARE.validate.serverError(err, form.username, error, form.email)) return;
       error.textContent = err.message; ui.fail(err);
     });
   });
