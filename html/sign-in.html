@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/auth.css">
+  <link rel="stylesheet" href="../css/shared/auth-tabs.css">
+  <link rel="stylesheet" href="../css/pages/sign-in.css">
+</head>
+<body>
+<div class="auth">
+  <aside class="auth__hero">
+    <div class="auth__brand">
+      <div class="brand__mark">CARE</div>
+      <div class="brand__sub">Campus Assistance &amp; Response Environment</div>
+      <div class="brand__loc">CTU - Consolacion Campus</div>
+    </div>
+    <div class="auth__message">
+      <h2 class="auth__headline">Student medical information for <em>emergency response.</em></h2>
+      <p class="auth__lead">Connecting responders with essential student medical information when it matters most.</p>
+    </div>
+  </aside>
+  <section class="auth__panel">
+    <form class="auth__form" id="sign-in-form" novalidate>
+      <h1 class="auth__title">Sign in</h1>
+      <p class="auth__sub">Accounts are issued by the University Clinic.</p>
+
+      <div class="tabs" role="tablist" aria-label="Account type">
+        <button type="button" class="tabs__btn is-active" role="tab" aria-selected="true" data-role="sqrt">SQRT Responder</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" data-role="clinic">Clinic Staff</button>
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="username">Username</label>
+        <input class="input" id="username" name="username" type="text" autocomplete="username" placeholder="Enter your username" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="password">Password</label>
+        <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+      </div>
+      <div class="auth__link-row"><a href="new-password.html" id="forgot-link">Forgot password?</a></div>
+
+      <p class="auth__error" id="form-error" role="alert"></p>
+      <button class="btn auth__submit" type="submit" id="submit-btn">Sign in as SQRT Responder</button>
+    </form>
+  </section>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/pages/sign-in.js"></script>
+</body>
+</html>

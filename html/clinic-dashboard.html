@@ -1,25 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CARE – Clinic Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/login.css" />
-  <link rel="stylesheet" href="../css/clinic-dashboard.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/dashboard.css">
+  <link rel="stylesheet" href="../css/pages/clinic-dashboard.css">
 </head>
-<body>
-  <header class="topbar">
-    <strong class="topbar__logo">CARE</strong>
-    <span class="topbar__user" id="who"></span>
-    <button type="button" class="topbar__out" id="logout">Sign out</button>
-  </header>
-  <main class="dash">
-    <h1>Clinic Dashboard</h1>
-    <p>You are signed in. This page is a placeholder: send me the <code>/clinic-dashboard</code> screen from your Figma and I'll build it here.</p>
-  </main>
+<body data-role="clinic" data-nav="dashboard">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="sign-in.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Dashboard</h1>
+        <p class="header__sub" id="page-sub">University Clinic</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="banner banner--warn banner--slim" id="pending-banner" hidden>
+        <i class="icon banner__icon" data-icon="triangle-alert"></i>
+        <div class="banner__body">
+          <h2 class="banner__title" id="pending-title"></h2>
+          <p class="banner__text">Open it to add your assessment</p>
+        </div>
+        <a class="btn btn--sm" href="clinic-sqrt-rescue-reports.html">Review reports</a>
+      </section>
 
-  <script src="../js/api.js"></script>
-  <script src="../js/clinic-dashboard.js"></script>
+      <div class="duo">
+        <section class="card panel">
+          <h2 class="card__title">Student records</h2>
+          <p class="card__sub" id="record-count">0 records</p>
+          <div class="panel__actions">
+            <a class="btn" href="clinic-student-records.html"><i data-icon="search"></i>Search records</a>
+            <a class="btn btn--outline" href="clinic-add-student-record.html" style="color:var(--blue)">Add student record</a>
+          </div>
+        </section>
+        <section class="card panel">
+          <h2 class="card__title">Find a student</h2>
+          <p class="card__sub">Last name or student ID</p>
+          <form class="find__row" id="find-form">
+            <input class="input" name="q" type="search" placeholder="Last name or student ID" aria-label="Last name or student ID" autocomplete="off">
+            <button class="btn btn--tint" type="submit">Search</button>
+          </form>
+        </section>
+      </div>
+
+      <section class="card recent">
+        <div class="recent__head">
+          <div><h2 class="card__title">Recent reports</h2><p class="card__sub">Open items</p></div>
+          <a class="btn btn--outline btn--sm" href="clinic-sqrt-rescue-reports.html">View all</a>
+        </div>
+        <div class="recent__list" id="recent-list"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/clinic-dashboard.js"></script>
 </body>
 </html>

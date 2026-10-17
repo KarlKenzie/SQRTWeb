@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student record · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/student-record.css">
+  <link rel="stylesheet" href="../css/pages/clinic-student-record.css">
+</head>
+<body data-role="clinic" data-nav="records">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header header--no-back">
+      <div class="header__text">
+        <h1 class="header__title header__title--bold" id="page-title"></h1>
+        <p class="header__sub" id="page-sub">Official record · Clinic maintained</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card record record--compact" id="record" data-condition-icon="activity"></section>
+      <section class="card related">
+        <h2 class="related__title">Rescue reports</h2>
+        <p class="related__sub">For this student</p>
+        <div class="related__list" id="related"></div>
+      </section>
+      <div class="button-row">
+        <a class="btn" id="edit-link" href="clinic-student-records.html"><i data-icon="pencil"></i>Edit record</a>
+        <a class="btn btn--outline" href="clinic-student-records.html"><i data-icon="chevron-left"></i>Back to records</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/clinic-student-record.js"></script>
+</body>
+</html>

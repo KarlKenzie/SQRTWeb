@@ -1,0 +1,65 @@
+/* ==========================================================================
+   CARE – base.css
+   Design tokens, reset and typography. Loaded by every page.
+   ========================================================================== */
+:root {
+  /* Colours (sampled from the Figma designs) */
+  --navy: #0b2545;
+  --navy-2: #12305a;
+  --blue: #1b5fa8;
+  --blue-nav: #2e5a88;
+  --blue-soft: #e4ecf5;
+  --blue-line: #cfe0f0;
+  --gold: #c8a02e;
+  --gold-dark: #7a5a00;
+  --gold-soft: #f8f4e6;
+  --red: #b3261e;
+  --red-soft: #f5e3e2;
+  --orange-soft: #fee3d3;
+  --page: #eaeff5;
+  --card-line: #e3e8ee;
+  --field-line: #d8e4f0;
+  --text: #0b2545;
+  --muted: #5b6b80;
+  --placeholder: #8593a6;
+  --white: #ffffff;
+
+  --font: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", ui-monospace, monospace;
+
+  --sidebar-w: 356px;
+  --header-h: 111px;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--text);
+  background: var(--page);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+table { border-collapse: collapse; }
+[hidden] { display: none !important; }
+
+/* icons injected by js/shared/icons.js */
+.icon { display: inline-flex; flex: none; width: 24px; height: 24px; }
+.icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mono { font-family: var(--font-mono); }
+
+/* ---------- Brand block (sidebar + sign-in screens) ---------- */
+.brand { padding-top: 36px; }
+.brand__mark { font-size: 30px; font-weight: 700; letter-spacing: .3em; line-height: 40px; }
+.brand__sub  { margin-top: 15px; font-size: 14px; line-height: 20px; white-space: nowrap; }
+.brand__loc  { margin-top: 5px; font-size: 13px; line-height: 18px; font-weight: 600; color: var(--gold); }

@@ -1,0 +1,18 @@
+/* admin-sign-in.html */
+.auth__hero--admin { padding-top: 70px; padding-left: 114px; }
+.auth__hero--admin .auth__message { left: 88px; transform: translateY(-50%); top: 56.5%; }
+.auth__hero--admin .auth__lead { margin-top: 18px; max-width: none; }
+.auth__form { width: 433px; }
+.auth__title { font-weight: 700; font-size: 30px; }
+.auth__sub { margin-top: 6px; }
+.auth__form .field { margin-top: 22px; }
+.auth__form .field:nth-of-type(2) { margin-top: 26px; }
+.auth__link-row { margin-top: 18px; }
+.auth__submit { margin-top: 33px; }
+.notice {
+  display: flex; align-items: flex-start; gap: 8px; margin-top: 18px; padding: 10px 14px;
+  border: 1px solid var(--field-line); border-radius: 8px; background: var(--blue-soft);
+}
+.notice .icon { width: 20px; height: 20px; margin-top: 1px; color: var(--navy); }
+.notice strong { display: block; font-size: 16px; line-height: 20px; }
+.notice span { display: block; font-size: 14px; line-height: 18px; color: var(--muted); }

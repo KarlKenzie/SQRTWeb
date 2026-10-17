@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CARE – report-form.css : rescue report form card
+   Used by sqrt-new-rescue-report.html and sqrt-quick-rescue-report.html
+   ========================================================================== */
+.form-card { padding: 50px 50px 46px; }
+.form-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 38px; }
+.form-card__title { font-size: 22px; line-height: 28px; font-weight: 500; }
+.form-card__sub { margin-top: 6px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.form-stack { display: grid; gap: 17px; }
+.form-card .field__label { font-size: 16px; color: #4a5a70; }
+.form-card .input { height: 57px; font-size: 18px; }
+.form-card .textarea { font-size: 18px; }
+.form-card .textarea--lg { height: 128px; }
+.form-card .textarea--xl { height: 132px; }
+.form-card .input[readonly] { color: var(--muted); background: #fff; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-actions { display: flex; flex-wrap: wrap; gap: 17px; margin-top: 62px; }
+.form-error { min-height: 0; margin-top: 18px; font-size: 15px; color: var(--red); }
+.form-error:empty { display: none; }

@@ -1,0 +1,12 @@
+/* ==========================================================================
+   CARE – auth-tabs.css : segmented role switch on the sign-in page
+   ========================================================================== */
+.tabs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 6px;
+  border: 1px solid var(--field-line); border-radius: 12px; background: #e4eaf1;
+}
+.tabs__btn {
+  height: 56px; border: 0; border-radius: 8px; background: transparent;
+  font-size: 18px; font-weight: 600; color: var(--muted);
+}
+.tabs__btn.is-active { background: var(--blue); color: var(--white); }

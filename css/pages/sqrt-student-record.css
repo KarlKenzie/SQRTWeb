@@ -1,0 +1,4 @@
+/* sqrt-student-record.html – card layout comes from shared/student-record.css */
+.banner .banner__icon { width: 24px; height: 24px; margin-left: -2px; }
+.content { gap: 33px; }
+.button-row { margin-top: 0; }

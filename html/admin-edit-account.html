@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit account · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/account-form.css">
+  <link rel="stylesheet" href="../css/pages/admin-edit-account.css">
+</head>
+<body data-role="admin" data-nav="accounts">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header header--no-back">
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Edit account</h1>
+        <p class="header__sub" id="page-sub"></p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <form class="card aform" id="account-form" novalidate>
+        <h2 class="aform__title">Edit account</h2>
+        <p class="aform__sub">The role sets what this person can reach.</p>
+        <div class="aform__grid">
+          <div class="field"><label class="field__label" for="firstName">First name</label>
+            <input class="input input--mono" id="firstName" name="firstName" type="text" required></div>
+          <div class="field"><label class="field__label" for="lastName">Last name</label>
+            <input class="input input--mono" id="lastName" name="lastName" type="text" required></div>
+          <div class="field"><label class="field__label" for="username">Username</label>
+            <input class="input input--mono" id="username" name="username" type="text" placeholder="sqrt.surname" autocomplete="off" autocapitalize="off" required>
+            <span class="field__hint">Prefix with the role: sqrt.clinic.admin</span></div>
+          <div class="field"><label class="field__label" for="role">Role</label>
+            <select class="select" id="role" name="role" required></select></div>
+          <div class="field"><label class="field__label" for="email">Email</label>
+            <input class="input input--mono" id="email" name="email" type="email" placeholder="name@ctu.edu.ph" required></div>
+          <div class="field"><label class="field__label" for="password">Password</label>
+            <input class="input" id="password" type="text" placeholder="Set by user" disabled></div>
+          <div class="field"><label class="field__label" for="department">Department</label>
+            <select class="select" id="department" name="department" required><option value="">Select department</option></select></div>
+          <div class="field"><label class="field__label" for="status">Account status</label>
+            <select class="select" id="status" name="status"></select></div>
+        </div>
+        <section class="banner banner--warn">
+          <i class="icon banner__icon" data-icon="triangle-alert"></i>
+          <div class="banner__body">
+            <h2 class="banner__title">Changing the role can change what this person can do.</h2>
+            <p class="banner__text">SQRT reads records and file reports. Clinic maintains records and writes assessments.</p>
+          </div>
+        </section>
+        <p class="form-error" id="form-error" role="alert"></p>
+      </form>
+      <div class="aform__actions">
+        <button class="btn" type="submit" form="account-form" id="submit-btn"><i data-icon="circle-check"></i>Save changes</button>
+        <a class="btn btn--outline" id="cancel" href="admin-user-accounts.html">Cancel</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/admin-edit-account.js"></script>
+</body>
+</html>

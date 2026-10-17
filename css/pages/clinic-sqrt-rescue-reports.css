@@ -1,0 +1,3 @@
+/* clinic-sqrt-rescue-reports.html – table styles come from shared/report-list.css */
+.reports__head, .reports__row { grid-template-columns: 145px 256px 384px 216px 360px 1fr; padding-left: 31px; }
+.sortbar { padding-left: 32px; padding-bottom: 34px; }

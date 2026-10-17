@@ -1,25 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CARE – SQRT Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/login.css" />
-  <link rel="stylesheet" href="../css/sqrt-dashboard.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/dashboard.css">
+  <link rel="stylesheet" href="../css/pages/sqrt-dashboard.css">
 </head>
-<body>
-  <header class="topbar">
-    <strong class="topbar__logo">CARE</strong>
-    <span class="topbar__user" id="who"></span>
-    <button type="button" class="topbar__out" id="logout">Sign out</button>
-  </header>
-  <main class="dash">
-    <h1>SQRT Dashboard</h1>
-    <p>You are signed in. This page is a placeholder: send me the <code>/sqrt-dashboard</code> screen from your Figma and I'll build it here.</p>
-  </main>
+<body data-role="sqrt" data-nav="dashboard">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="sign-in.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Dashboard</h1>
+        <p class="header__sub" id="page-sub">Student Quick Response Team</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card panel">
+        <h2 class="card__title">Find a student</h2>
+        <p class="card__sub">Last name or student ID</p>
+        <form class="find__row" id="find-form">
+          <input class="input" name="q" type="search" placeholder="e.g. Santos or 2025-00124" aria-label="Last name or student ID" autocomplete="off">
+          <button class="btn btn--steel" type="submit"><i data-icon="search"></i>Search</button>
+        </form>
+      </section>
 
-  <script src="../js/api.js"></script>
-  <script src="../js/sqrt-dashboard.js"></script>
+      <section class="banner banner--danger banner--plain">
+        <div class="banner__body">
+          <h2 class="banner__title">Responding now?</h2>
+          <p class="banner__text">File a report quickly.</p>
+        </div>
+        <a class="btn btn--danger" href="sqrt-quick-rescue-report.html"><i data-icon="activity"></i>Quick report</a>
+      </section>
+
+      <section class="banner banner--warn banner--plain" id="pending-banner" hidden>
+        <div class="banner__body">
+          <h2 class="banner__title" id="pending-title"></h2>
+          <p class="banner__text" id="pending-codes"></p>
+        </div>
+        <a class="btn btn--gold" href="sqrt-rescue-reports.html"><i data-icon="triangle-alert"></i>View reports</a>
+      </section>
+
+      <section class="card recent">
+        <div class="recent__head">
+          <div>
+            <h2 class="card__title">Recent reports</h2>
+            <p class="card__sub">Newest first</p>
+          </div>
+          <a class="btn btn--outline btn--sm" href="sqrt-rescue-reports.html">View all</a>
+        </div>
+        <div class="recent__list" id="recent-list"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/sqrt-dashboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access logs · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/admin-table.css">
+  <link rel="stylesheet" href="../css/pages/admin-access-logs.css">
+</head>
+<body data-role="admin" data-nav="logs">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header header--no-back">
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Access logs</h1>
+        <p class="header__sub" id="page-sub">All roles</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card afilters">
+        <form class="afilters__grid" id="filters" onsubmit="return false" style="grid-template-columns: 468fr 251fr 299fr 354fr">
+          <div class="field"><label class="field__label" for="q">Search by user, action or student</label>
+            <input class="input" id="q" name="q" type="search" placeholder="e.g. Maria Santos or viewed" autocomplete="off"></div>
+          <div class="field"><label class="field__label" for="role">Role</label>
+            <select class="select" id="role" name="role"><option value="">All roles</option></select></div>
+          <div class="field"><label class="field__label" for="action">Actions</label>
+            <select class="select" id="action" name="action"><option value="">All actions</option></select></div>
+          <div class="field"><label class="field__label" for="result">Result</label>
+            <select class="select" id="result" name="result"><option value="">All results</option></select></div>
+        </form>
+      </section>
+      <p class="count-note" id="count"></p>
+      <section class="card atable logs">
+        <div class="atable__head"><span>Date and Time</span><span>User</span><span>Role</span><span>Action</span><span>Student record</span><span>Result</span></div>
+        <div id="rows"></div>
+      </section>
+      <div class="anote"><i class="icon" data-icon="lock"></i><span>The log records that a record was opened, never what it contained.</span></div>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/admin-access-logs.js"></script>
+</body>
+</html>

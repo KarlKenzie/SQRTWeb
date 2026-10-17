@@ -1,0 +1,5 @@
+/* admin-account-deactivated.html – layout comes from shared/account-detail.css */
+.banner--slim { min-height: 43px; padding: 0 22px; gap: 14px; border-radius: 10px; background: #dbeafc; border-color: var(--blue-line); }
+.banner--slim .banner__title { font-size: 14px; line-height: 20px; color: var(--navy); }
+.banner--slim .banner__icon { width: 20px; height: 20px; color: var(--navy); }
+.acc-act { margin-top: 34px; }

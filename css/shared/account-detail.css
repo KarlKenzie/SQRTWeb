@@ -1,0 +1,32 @@
+/* ==========================================================================
+   CARE – account-detail.css : administrator view of one account
+   Used by admin-account-detail, admin-deactivate-account,
+   admin-account-deactivated and admin-reactivate-account
+   ========================================================================== */
+.acc { overflow: hidden; }
+.acc__top { display: flex; align-items: center; gap: 24px; padding: 30px 29px 18px; }
+.acc__avatar { flex: none; width: 76px; height: 76px; border-radius: 10px; display: grid; place-items: center; background: #1f4577; color: #e8eef6; font-size: 32px; font-weight: 500; }
+.acc__name { font-size: 32px; line-height: 38px; font-weight: 700; }
+.acc__chips { display: flex; gap: 8px; margin-top: 4px; }
+.acc__role { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1.5px solid var(--navy); border-radius: 6px; background: var(--white); font-size: 16px; font-weight: 600; }
+.acc__tag { display: inline-flex; align-items: center; height: 34px; padding: 0 14px; border-radius: 17px; background: #c9e0f1; color: #1b4f86; font-size: 16px; font-weight: 600; }
+.acc__tag--inactive { background: #dfe6ee; color: #3f5878; }
+.acc__grid { display: grid; grid-template-columns: 496px 519px 1fr; gap: 16px 0; padding: 4px 27px 28px; }
+.acc__label { font-size: 16px; line-height: 22px; font-weight: 600; color: #8995a6; }
+.acc__value { margin-top: 2px; font-family: var(--font-mono); font-size: 15px; line-height: 21px; }
+.acc__actions { display: flex; gap: 15px; padding: 12px 23px 17px; border-top: 1px solid #e3e8ee; }
+.acc__actions .btn { height: 40px; padding: 0 20px; font-size: 16px; gap: 10px; }
+.acc__actions .btn .icon { width: 18px; height: 18px; }
+.acc-act { margin-top: 26px; padding: 22px 26px 8px; }
+.acc-act__head { display: flex; align-items: flex-start; justify-content: space-between; }
+.acc-act__title { font-size: 18px; line-height: 24px; font-weight: 600; }
+.acc-act__subhead { font-size: 15px; line-height: 20px; color: #8995a6; }
+.acc-act__list { margin-top: 6px; }
+.acc-act__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 66px; border-top: 1px solid #e3e8ee; }
+.acc-act__row:first-child { border-top: 0; }
+.acc-act__sub { font-size: 15px; line-height: 20px; color: #8995a6; }
+.acc-act__when { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 14px; color: #8995a6; }
+.acc-act__empty { padding: 22px 0 26px; font-size: 16px; color: var(--muted); }
+.acc-act .tag { font-family: var(--font); }
+
+.header__title { font-weight: 700; }

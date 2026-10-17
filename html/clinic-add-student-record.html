@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add student record · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/student-form.css">
+  <link rel="stylesheet" href="../css/pages/clinic-add-student-record.css">
+</head>
+<body data-role="clinic" data-nav="records">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="clinic-student-records.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Add student record</h1>
+        <p class="header__sub" id="page-sub">New record</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <form class="card sform" id="student-form" novalidate>
+        <div class="sform__head">
+          <div>
+            <h2 class="sform__title">New student record</h2>
+            <p class="sform__sub">The SQRT can read this record but cannot change it.</p>
+          </div>
+          <span class="source-chip"><i data-icon="shield-check"></i>Official Clinic-Maintained Information</span>
+        </div>
+        <div class="sform__grid sform__row2">
+          <div class="field"><label class="field__label" for="firstName">First name</label>
+            <input class="input" id="firstName" name="firstName" type="text" required></div>
+          <div class="field"><label class="field__label" for="lastName">Last name</label>
+            <input class="input" id="lastName" name="lastName" type="text" required></div>
+        </div>
+        <div class="sform__grid sform__row4">
+          <div class="field"><label class="field__label" for="studentId">Student ID</label>
+            <input class="input" id="studentId" name="studentId" type="text" required></div>
+          <div class="field"><label class="field__label" for="program">Program</label>
+            <select class="select" id="program" name="program" required><option value="">Select program</option></select></div>
+          <div class="field"><label class="field__label" for="block">Block</label>
+            <select class="select" id="block" name="block" required><option value="">Select block</option></select></div>
+          <div class="field"><label class="field__label" for="year">Year level</label>
+            <select class="select" id="year" name="year" required><option value="">Select year level</option></select></div>
+        </div>
+        <div class="sform__grid sform__row2">
+          <div class="field"><label class="field__label" for="allergies">Allergies</label>
+            <textarea class="textarea" id="allergies" name="allergies" placeholder="None recorded"></textarea></div>
+          <div class="field"><label class="field__label" for="conditions">Existing medical condition</label>
+            <textarea class="textarea" id="conditions" name="conditions" placeholder="None recorded"></textarea></div>
+        </div>
+        <div class="sform__grid">
+          <div class="field"><label class="field__label" for="treatments">Past treatments</label>
+            <textarea class="textarea textarea--sm" id="treatments" name="treatments"></textarea></div>
+          <div class="field"><label class="field__label" for="contact">Emergency contact</label>
+            <input class="input" id="contact" name="contact" type="text" placeholder="Name (Relationship) - mobile number"></div>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <div class="sform__actions">
+          <button class="btn" type="submit" id="submit-btn"><i data-icon="circle-check"></i>Create record</button>
+          <a class="btn btn--outline" id="cancel" href="clinic-student-records.html">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/clinic-add-student-record.js"></script>
+</body>
+</html>

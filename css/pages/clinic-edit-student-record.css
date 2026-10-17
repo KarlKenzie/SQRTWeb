@@ -1,0 +1,5 @@
+/* clinic-edit-student-record.html – layout comes from shared/student-form.css */
+.sform { padding: 28px 24px 36px; }
+.sform__grid { gap: 14px 22px; margin-top: 10px; }
+.sform__actions { margin-top: 26px; }
+.sform__actions .btn:first-child { min-width: 250px; }

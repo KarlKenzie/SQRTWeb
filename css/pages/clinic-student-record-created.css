@@ -1,0 +1,11 @@
+/* clinic-student-record-created.html – card layout comes from shared/student-record.css */
+.content { gap: 22px; }
+.banner--success { min-height: 95px; padding: 0 32px; }
+.banner--success .banner__title { font-size: 18px; }
+.record--compact { padding: 30px 38px 26px; }
+.record--compact .record__rule { margin: 30px 0 46px; }
+.record--compact .record__boxes { gap: 40px; }
+.record--compact .infobox { min-height: 125px; }
+.record--compact .record__details { margin-top: 46px; }
+.button-row { margin-top: 0; }
+.button-row .btn { height: 45px; min-width: 184px; font-size: 18px; }

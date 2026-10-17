@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CARE – student-form.css : add / edit student record card
+   Used by clinic-add-student-record.html and clinic-edit-student-record.html
+   ========================================================================== */
+.sform { padding: 32px 32px 36px; }
+.sform__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.sform__title { font-size: 20px; line-height: 26px; font-weight: 700; }
+.sform__sub { margin-top: 8px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.sform__grid { display: grid; gap: 24px 22px; margin-top: 16px; }
+.sform__row2 { grid-template-columns: 1fr 1fr; }
+.sform__row4 { grid-template-columns: 230px 440px 1fr 1fr; margin-top: 40px; }
+.sform .field__label { font-size: 16px; color: var(--muted); }
+.sform .input, .sform .select { height: 57px; font-size: 18px; }
+.sform .textarea { height: 100px; font-size: 18px; }
+.sform .textarea--sm { height: 82px; }
+.sform .input--mono, .sform .select--mono { font-family: var(--font-mono); font-size: 16px; }
+.sform__actions { display: flex; gap: 20px; margin-top: 44px; }
+.sform__actions .btn { height: 55px; min-width: 273px; }
+.sform__actions .btn--outline { min-width: 182px; }

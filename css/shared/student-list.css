@@ -1,0 +1,19 @@
+/* ==========================================================================
+   CARE – student-list.css : filter card + student table
+   Used by sqrt-student-search.html and clinic-student-records.html
+   ========================================================================== */
+.filters { padding: 30px 30px 34px; }
+.filters__grid { display: grid; gap: 16px; align-items: end; }
+.filters__grid--students { grid-template-columns: 468fr 217fr 217fr 217fr 225fr; }
+.filters .field__label { font-size: 18px; color: var(--muted); }
+.filters .input, .filters .select { height: 57px; font-size: 18px; color: var(--muted); }
+.filters .input { color: var(--text); }
+
+.student-table .table__head,
+.student-table .table__row { grid-template-columns: 282px 170px 452px 132px 1fr 156px; }
+.student-table .table__row { min-height: 81px; font-size: 18px; }
+.student-table .table__row strong { font-size: 18px; font-weight: 700; }
+.student-table .program__code { display: block; font-weight: 700; }
+.student-table .program__name { display: block; color: var(--muted); }
+.student-table .muted { color: var(--muted); }
+.student-table .btn { justify-self: end; width: 156px; }

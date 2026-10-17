@@ -1,0 +1,8 @@
+/* sqrt-quick-rescue-report.html – form layout comes from shared/report-form.css */
+.form-card { padding: 38px 52px 34px; }
+.form-card__head { margin-bottom: 32px; }
+.form-card__title { font-weight: 600; }
+.content { gap: 21px; }
+.form-actions { margin-top: 3px; }
+.form-actions .btn { height: 55px; }
+.form-actions .btn--wide { min-width: 273px; }

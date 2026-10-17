@@ -1,0 +1,6 @@
+/* sqrt-new-rescue-report.html – form layout comes from shared/report-form.css */
+.content { gap: 29px; }
+.form-card { padding-top: 56px; }
+.form-card__head { margin-bottom: 44px; }
+.form-actions { margin-top: 47px; }
+.form-actions .btn { height: 55px; }

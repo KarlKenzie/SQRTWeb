@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reactivate account · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/account-detail.css">
+  <link rel="stylesheet" href="../css/pages/admin-reactivate-account.css">
+</head>
+<body data-role="admin" data-nav="accounts">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header header--no-back">
+      <div class="header__text">
+        <h1 class="header__title" id="page-title"></h1>
+        <p class="header__sub" id="page-sub"></p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card acc">
+        <div class="acc__top">
+          <div class="acc__avatar" id="acc-avatar"></div>
+          <div>
+            <h2 class="acc__name" id="acc-name"></h2>
+            <div class="acc__chips"><span class="acc__role" id="acc-role"></span><span class="acc__tag" id="acc-status-tag"></span></div>
+          </div>
+        </div>
+        <div class="acc__grid">
+          <div><div class="acc__label">Username</div><div class="acc__value" id="acc-username"></div></div>
+          <div><div class="acc__label">Email</div><div class="acc__value" id="acc-email"></div></div>
+          <div><div class="acc__label">Department</div><div class="acc__value" id="acc-department"></div></div>
+          <div><div class="acc__label">Account ID</div><div class="acc__value" id="acc-id"></div></div>
+          <div><div class="acc__label">Last sign-in</div><div class="acc__value" id="acc-last"></div></div>
+          <div><div class="acc__label">Created</div><div class="acc__value" id="acc-created"></div></div>
+          <div><div class="acc__label">Status</div><div class="acc__value" id="acc-status"></div></div>
+        </div>
+        <div class="acc__actions">
+          <a class="btn" id="acc-edit" href="admin-user-accounts.html"><i data-icon="pencil"></i>Edit account</a>
+          <a class="btn btn--outline" id="acc-toggle" href="admin-user-accounts.html"><i data-icon="x"></i>Deactivate</a>
+          <a class="btn btn--outline" href="admin-user-accounts.html"><i data-icon="chevron-left"></i>Back to accounts</a>
+        </div>
+      </section>
+
+      <section class="card acc-act">
+        <div class="acc-act__head">
+          <div><h2 class="acc-act__title">Account activity</h2><p class="acc-act__subhead">Newest first</p></div>
+          <a class="btn btn--outline btn--xs" id="acc-fulllog" href="admin-access-logs.html" style="height:34px">Open full log</a>
+        </div>
+        <div class="acc-act__list" id="acc-activity"></div>
+      </section>
+
+    </main>
+  </div>
+</div>
+  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal__icon modal__icon--ok"><i data-icon="circle-check"></i></div>
+      <h2 class="modal__title" id="modal-title">Reactivate this account?</h2>
+      <p class="modal__text"><span id="m-name"></span> will be able to sign in again as <span id="m-role-long"></span>.</p>
+      <dl class="modal__facts">
+        <div><dt>Username</dt><dd id="m-username"></dd></div>
+        <div><dt>Role</dt><dd id="m-role"></dd></div>
+        <div><dt>Current status</dt><dd id="m-status"></dd></div>
+      </dl>
+      <p class="form-error" id="m-error" role="alert"></p>
+      <div class="modal__actions">
+        <a class="btn btn--outline" id="m-cancel" href="admin-user-accounts.html">Cancel</a>
+        <button class="btn" type="button" id="m-confirm">Reactivate Account</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/admin-reactivate-account.js"></script>
+</body>
+</html>

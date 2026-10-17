@@ -1,0 +1,17 @@
+
+.afilters { padding: 30px 30px 24px; }
+.afilters__grid { display: grid; gap: 16px; align-items: end; }
+.afilters .field__label { font-size: 18px; }
+.afilters .input, .afilters .select { height: 57px; font-size: 18px; color: var(--muted); }
+.afilters .input { color: var(--text); }
+.atable { overflow: hidden; }
+.atable__head, .atable__row { display: grid; align-items: center; padding: 0 16px; }
+.atable__head { height: 40px; background: #e4eff7; font-size: 15px; font-weight: 600; color: var(--muted); }
+.atable__row { border-bottom: 1px solid #ebecef; color: var(--muted); }
+.atable__row:last-child { border-bottom: 0; }
+.atable__empty { padding: 44px 16px; text-align: center; font-size: 16px; color: var(--muted); }
+.anote {
+  display: flex; align-items: center; gap: 12px; margin-top: 2px; padding: 14px 18px;
+  border-radius: var(--radius-sm); background: #d7e3f0; font-size: 14px; color: #1b4f86;
+}
+.anote .icon { width: 18px; height: 18px; color: var(--navy); }

@@ -1,0 +1,29 @@
+/* ==========================================================================
+   CARE – account-form.css : add / edit administrator account
+   Used by admin-add-account.html and admin-edit-account.html
+   ========================================================================== */
+.aform { padding: 28px 24px 18px; }
+.aform__title { font-size: 20px; line-height: 26px; font-weight: 700; }
+.aform__sub { margin-top: 6px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.aform__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 22px; margin-top: 14px; }
+.aform .field__label { font-size: 16px; color: var(--muted); }
+.aform .input, .aform .select { height: 49px; font-size: 18px; }
+.aform .select { height: 59px; }
+.aform .input--mono { font-family: var(--font-mono); font-size: 16px; }
+.aform .field__hint { margin-top: -2px; }
+.pw-box { display: flex; gap: 12px; }
+.pw-box__value {
+  flex: 1; display: flex; align-items: center; height: 56px; padding: 0 20px;
+  border: 1px solid var(--gold); border-radius: var(--radius-sm); background: #eee1bf;
+  font-family: var(--font-mono); font-size: 22px; font-weight: 700; letter-spacing: .02em;
+}
+.pw-box .btn { height: 56px; width: 103px; padding: 0; font-size: 18px; }
+.pw-box .input { flex: 1; height: 49px; }
+.aform .banner--warn { margin-top: 14px; min-height: 72px; padding: 12px 18px; background: #eee1bf; border-color: var(--gold); }
+.aform .banner--warn .banner__title { font-size: 16px; line-height: 22px; color: #8a6a00; }
+.aform .banner--warn .banner__text { font-size: 13px; line-height: 18px; color: #8a6a00; }
+.aform__actions { display: flex; gap: 12px; margin-top: 18px; }
+.aform__actions .btn { height: 55px; min-width: 250px; font-size: 20px; }
+.aform__actions .btn--outline { min-width: 132px; }
+
+.header__title { font-weight: 700; }

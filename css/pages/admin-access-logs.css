@@ -1,0 +1,6 @@
+/* admin-access-logs.html – shared table styles in shared/admin-table.css */
+.logs .atable__head, .logs .atable__row { grid-template-columns: 284px 320px 142px 293px 306px 1fr; }
+.logs .atable__row { min-height: 44px; padding-top: 6px; padding-bottom: 6px; font-size: 15px; }
+.logs .atable__head { height: 50px; }
+.logs .atable__row .name { color: var(--text); }
+.count-note { margin-top: 0; }

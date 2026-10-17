@@ -1,0 +1,9 @@
+/* admin-user-accounts.html – shared table styles in shared/admin-table.css */
+.accounts .atable__head, .accounts .atable__row { grid-template-columns: 287px 194px 137px 268px 141px 304px 1fr; }
+.accounts .atable__row { min-height: 64px; font-size: 16px; }
+.person { display: flex; align-items: center; gap: 10px; color: var(--text); font-size: 20px; font-weight: 700; }
+.person__avatar { flex: none; width: 48px; height: 48px; border-radius: 8px; display: grid; place-items: center; background: var(--navy); color: var(--white); font-size: 22px; font-weight: 600; }
+.row-actions { display: flex; justify-content: flex-end; gap: 6px; }
+.row-actions .btn { height: 26px; padding: 0 12px; font-size: 14px; font-weight: 700; }
+.count-note { margin-top: 0; }
+.afilters .btn { align-self: end; }

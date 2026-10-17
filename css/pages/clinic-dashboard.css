@@ -1,0 +1,15 @@
+/* clinic-dashboard.html – shared pieces live in shared/dashboard.css */
+.content { gap: 10px; }
+.banner--slim { min-height: 88px; padding: 0 30px 0 38px; border-color: var(--gold); background: #fff3c8; }
+.banner--slim .banner__title { color: #8a6a00; font-size: 18px; }
+.banner--slim .banner__text { color: #8a6a00; font-size: 16px; }
+.banner--slim .btn { width: 200px; height: 34px; font-size: 16px; }
+.duo { display: grid; grid-template-columns: 697px 1fr; gap: 50px; }
+.panel { min-height: 195px; padding: 36px 46px 30px; }
+.panel__actions { display: flex; gap: 24px; margin-top: 22px; }
+.panel__actions .btn { height: 53px; font-size: 18px; padding: 0 30px; }
+.panel .find__row { margin-top: 24px; gap: 50px; }
+.panel .find__row .input { height: 53px; }
+.panel .find__row .btn { width: 177px; height: 53px; }
+.recent { margin-top: 36px; }
+.recent__head .btn { width: 172px; height: 40px; }

@@ -1,0 +1,9 @@
+/* clinic-rescue-report-detail.html – extends shared/report-detail.css with assessment form + medical record */
+.rr-grid--tight { margin-top: 22px; gap: 18px 60px; }
+.rr-block .textarea { height: 88px; font-size: 16px; resize: vertical; }
+.rr-block .btn--sm { height: 39px; font-size: 15px; padding: 0 24px; }
+#assess-form .form-error { margin: 12px 0 0; }
+#assess-form .btn { margin-top: 20px; }
+.med-actions { display: flex; gap: 28px; margin-top: 26px; }
+.button-row { margin-top: 0; }
+.button-row .btn { height: 36px; padding: 0 24px; font-size: 15px; }

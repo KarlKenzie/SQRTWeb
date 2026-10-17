@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student search · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/student-list.css">
+  <link rel="stylesheet" href="../css/pages/sqrt-student-search.css">
+</head>
+<body data-role="sqrt" data-nav="search">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="sqrt-dashboard.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Student search</h1>
+        <p class="header__sub" id="page-sub">Name or student ID</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card filters">
+        <form class="filters__grid filters__grid--students" id="filters" onsubmit="return false">
+          <div class="field"><label class="field__label" for="q">Search by name or student ID</label>
+            <input class="input" id="q" name="q" type="search" placeholder="e.g. Santos, Maria or 2025-00124" autocomplete="off"></div>
+          <div class="field"><label class="field__label" for="program">Program</label>
+            <select class="select" id="program" name="program"><option value="">All Programs</option></select></div>
+          <div class="field"><label class="field__label" for="block">Block</label>
+            <select class="select" id="block" name="block"><option value="">All Blocks</option></select></div>
+          <div class="field"><label class="field__label" for="year">Year level</label>
+            <select class="select" id="year" name="year"><option value="">All Years</option></select></div>
+          <div class="field"><label class="field__label" for="sort">Sort</label>
+            <select class="select" id="sort" name="sort"></select></div>
+        </form>
+      </section>
+      <p class="count-note" id="count"></p>
+      <section class="card student-table">
+        <div class="table__head"><span>Student name</span><span>Student ID</span><span>Program</span><span>Block</span><span>Year level</span><span></span></div>
+        <div id="rows"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/sqrt-student-search.js"></script>
+</body>
+</html>

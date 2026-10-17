@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick rescue report · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/report-form.css">
+  <link rel="stylesheet" href="../css/pages/sqrt-quick-rescue-report.css">
+</head>
+<body data-role="sqrt" data-nav="reports">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header header--no-back">
+      <div class="header__text">
+        <h1 class="header__title header__title--bold" id="page-title">Quick rescue report</h1>
+        <p class="header__sub" id="page-sub">Stamped</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="banner banner--orange">
+        <i class="icon banner__icon" data-icon="activity"></i>
+        <div class="banner__body">
+          <h2 class="banner__title">Quick Report</h2>
+          <p class="banner__text">It does not replace a clinical assessment.</p>
+        </div>
+      </section>
+
+      <form class="card form-card" id="report-form" novalidate>
+        <div class="form-card__head">
+          <div>
+            <h2 class="form-card__title">Incident details</h2>
+            <p class="form-card__sub">Essentials only</p>
+          </div>
+          <span class="source-chip"><i data-icon="activity"></i>SQRT Observation</span>
+        </div>
+        <div class="form-stack">
+          <div class="field"><label class="field__label" for="student">Student</label>
+            <input class="input" id="student" name="student" type="text" list="student-options" placeholder="Type last name, first name or student ID" autocomplete="off" required>
+            <datalist id="student-options"></datalist></div>
+          <div class="field"><label class="field__label" for="location">Location</label>
+            <input class="input" id="location" name="location" type="text" placeholder="e.g. Gymnasium Court 2" required></div>
+          <div class="field"><label class="field__label" for="reason">Reason for rescue</label>
+            <input class="input" id="reason" name="reason" type="text" placeholder="e.g. Difficulty breathing during PE drills" required></div>
+          <div class="field"><label class="field__label" for="observed">Observed condition / symptoms</label>
+            <textarea class="textarea" id="observed" name="observed" placeholder="What you observed" required></textarea></div>
+          <div class="field"><label class="field__label" for="actions">Actions taken</label>
+            <textarea class="textarea" id="actions" name="actions" placeholder="What you did" required></textarea></div>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+      </form>
+
+      <div class="form-actions">
+        <button class="btn btn--danger btn--wide" type="submit" form="report-form" id="submit-btn"><i data-icon="circle-check"></i>Submit report</button>
+        <a class="btn btn--outline" id="full-link" href="sqrt-new-rescue-report.html" style="min-width:292px">Add full details instead</a>
+        <a class="btn btn--outline" href="sqrt-dashboard.html" style="min-width:182px">Cancel</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/sqrt-quick-rescue-report.js"></script>
+</body>
+</html>

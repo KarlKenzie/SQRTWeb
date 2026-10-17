@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rescue report · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/report-detail.css">
+  <link rel="stylesheet" href="../css/shared/student-record.css">
+  <link rel="stylesheet" href="../css/pages/sqrt-rescue-report-detail.css">
+</head>
+<body data-role="sqrt" data-nav="reports">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="sqrt-rescue-reports.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Rescue report</h1>
+        <p class="header__sub" id="page-sub">Read-only</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card rr-summary">
+        <div class="rr-summary__top">
+          <div>
+            <h2 class="rr-summary__title" id="rr-title"></h2>
+            <p class="rr-summary__meta" id="rr-meta"></p>
+          </div>
+          <div id="rr-status"></div>
+        </div>
+        <div class="rr-summary__facts">
+          <div><div class="rr-label">Submitted by</div><div class="rr-value" id="rr-submitted"></div></div>
+          <div><div class="rr-label">Reason for rescue</div><div class="rr-value" id="rr-reason"></div></div>
+          <div><div class="rr-label">Referred to Clinic</div><div class="rr-value" id="rr-referred"></div></div>
+        </div>
+      </section>
+
+      <section class="card rr-block">
+        <div class="rr-block__head">
+          <div><h2 class="rr-block__title">Responder’s report</h2><p class="rr-block__sub">Observed at the scene</p></div>
+          <span class="source-chip"><i data-icon="activity"></i>SQRT Observation</span>
+        </div>
+        <div class="rr-grid">
+          <div><div class="rr-label">Observed condition / symptoms</div><div class="rr-value" id="rr-observed"></div></div>
+          <div><div class="rr-label">Actions taken</div><div class="rr-value" id="rr-actions"></div></div>
+          <div><div class="rr-label">Immediate response / intervention</div><div class="rr-value" id="rr-intervention"></div></div>
+          <div><div class="rr-label">Additional notes</div><div class="rr-value" id="rr-notes"></div></div>
+        </div>
+      </section>
+
+      <section class="card rr-block">
+        <div class="rr-block__head">
+          <div><h2 class="rr-block__title">Clinic assessment</h2><p class="rr-block__sub">Added by clinic staff</p></div>
+          <span class="source-chip source-chip--gold"><i data-icon="clipboard-list"></i>Clinic Assessment</span>
+        </div>
+        <div class="rr-note" id="rr-assessment"></div>
+      </section>
+
+      <div class="button-row">
+        <a class="btn btn--wide" id="open-record" href="sqrt-student-search.html">Open student record</a>
+        <a class="btn btn--outline btn--wide" href="sqrt-student-search.html"><i data-icon="chevron-left"></i>Back to search</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/sqrt-rescue-report-detail.js"></script>
+</body>
+</html>

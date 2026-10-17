@@ -1,0 +1,48 @@
+/* ==========================================================================
+   CARE – student-record.css : the medical record card (read-only views)
+   Used by sqrt-student-record, clinic-student-record, clinic-student-record-created
+   ========================================================================== */
+.record { padding: 48px 52px 58px; }
+.record__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; }
+.record__name { font-size: 32px; line-height: 40px; font-weight: 500; }
+.record__meta { margin-top: 12px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.record__updated { padding-top: 0; font-size: 18px; line-height: 24px; color: var(--muted); text-align: right; white-space: nowrap; }
+.record__updated strong { font-weight: 500; color: var(--text); }
+.record__right { display: flex; flex-direction: column; align-items: flex-end; gap: 24px; }
+.record__rule { height: 1px; margin: 38px -4px 46px; border: 0; background: #dfe4ea; }
+.record__boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin: 0 -2px; }
+.infobox { display: flex; align-items: center; gap: 22px; min-height: 125px; padding: 0 30px; border: 1px solid; border-radius: var(--radius-sm); }
+.infobox .icon { width: 44px; height: 44px; stroke-width: 1.6; }
+.infobox__title { font-size: 20px; line-height: 26px; font-weight: 600; }
+.infobox__value { margin-top: 6px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.infobox--danger { background: var(--red-soft); border-color: #e9c3c0; }
+.infobox--danger .icon { color: var(--red); }
+.infobox--warn { background: var(--gold-soft); border-color: #eadfb8; }
+.infobox--warn .icon { color: var(--gold); }
+.record__details { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; margin-top: 46px; }
+.record__label { font-size: 16px; line-height: 22px; font-weight: 600; color: var(--muted); }
+.record__value { margin-top: 12px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.button-row { display: flex; flex-wrap: wrap; gap: 17px; margin-top: 18px; }
+.btn--wide { min-width: 273px; }
+
+/* clinic variant: tighter card, rescue-report list under it */
+.record--compact { padding: 22px 15px 0; }
+.record--compact .record__name { font-weight: 700; }
+.record--compact .record__meta { margin-top: 4px; font-size: 18px; }
+.record--compact .record__rule { margin: 20px 0 18px; }
+.record--compact .record__boxes { gap: 10px; margin: 0; }
+.record--compact .infobox { min-height: 88px; gap: 18px; padding: 0 18px; }
+.record--compact .infobox .icon { width: 26px; height: 26px; }
+.record--compact .infobox__title { font-size: 20px; }
+.record--compact .infobox__value { margin-top: 2px; }
+.record--compact .record__details { margin-top: 20px; padding-bottom: 20px; }
+.record--compact .record__label { font-size: 16px; }
+.record--compact .record__value { margin-top: 10px; font-size: 18px; }
+.related { padding: 26px 17px 24px; }
+.related__title { font-size: 20px; line-height: 26px; font-weight: 600; }
+.related__sub { margin-top: 6px; font-size: 16px; line-height: 22px; color: var(--muted); }
+.related__list { margin-top: 18px; }
+.related__empty { font-size: 16px; color: var(--muted); }
+.related__item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid #ebecef; font-size: 16px; }
+.related__item:first-child { border-top: 0; }
+.related__item .muted { color: var(--muted); }

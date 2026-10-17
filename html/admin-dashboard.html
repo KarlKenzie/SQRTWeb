@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CARE Administration · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/admin-table.css">
+  <link rel="stylesheet" href="../css/pages/admin-dashboard.css">
+</head>
+<body data-role="admin" data-nav="dashboard">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="admin-sign-in.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">CARE Administration</h1>
+        <p class="header__sub" id="page-sub">CTU - Consolacion Campus</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <div class="stats">
+        <section class="card stat"><div class="stat__label">User accounts</div><div class="stat__num" id="s-accounts">0</div><div class="stat__sub" id="s-active">0 active</div></section>
+        <section class="card stat"><div class="stat__label">SQRT responders</div><div class="stat__num" id="s-sqrt">0</div><div class="stat__sub">Emergency response</div></section>
+        <section class="card stat"><div class="stat__label">Clinic staff</div><div class="stat__num" id="s-clinic">0</div><div class="stat__sub">Record maintenance</div></section>
+        <section class="card stat"><div class="stat__label">Access log entries</div><div class="stat__num" id="s-logs">0</div><div class="stat__sub">All roles</div></section>
+      </div>
+
+      <section class="banner banner--warn banner--slim" id="failed-banner" hidden>
+        <i class="icon banner__icon" data-icon="triangle-alert"></i>
+        <div class="banner__body"><h2 class="banner__title" id="failed-title"></h2></div>
+        <a class="btn btn--sm btn--outline" href="admin-access-logs.html">Open access logs</a>
+      </section>
+
+      <div class="duo">
+        <section class="card shortcut">
+          <h2 class="shortcut__title">User accounts</h2>
+          <p class="shortcut__sub">Who can sign in, and as what</p>
+          <div class="shortcut__actions">
+            <a class="btn btn--xs" href="admin-user-accounts.html"><i data-icon="users"></i>Manage accounts</a>
+            <a class="btn btn--xs btn--outline" href="admin-add-account.html"><i data-icon="plus"></i>Add account</a>
+          </div>
+        </section>
+        <section class="card shortcut">
+          <h2 class="shortcut__title">Access log</h2>
+          <p class="shortcut__sub">Record views, updates and sign-ins</p>
+          <div class="shortcut__actions">
+            <a class="btn btn--xs btn--tint" href="admin-access-logs.html"><i data-icon="clock"></i>Open access logs</a>
+          </div>
+        </section>
+      </div>
+
+      <section class="card activity">
+        <h2 class="activity__title">Recent activity</h2>
+        <p class="activity__sub">Newest first</p>
+        <div id="activity"></div>
+      </section>
+
+      <section class="anote anote--wide">
+        <i class="icon" data-icon="lock"></i>
+        <div><strong>Administrators cannot</strong><br>open a student medical record, edit it, or assess a rescue report.</div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/admin-dashboard.js"></script>
+</body>
+</html>

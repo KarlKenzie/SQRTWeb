@@ -1,0 +1,46 @@
+# CARE – Campus Assistance & Response Environment (front end)
+
+Plain HTML + CSS + JavaScript. No build step, no libraries. Open `index.html`
+(or serve the folder with VS Code Live Server). The back end is intentionally blank.
+
+```
+care-frontend/
+├─ index.html            → redirects to html/sign-in.html
+├─ html/                 29 pages (one file per screen)
+├─ css/
+│  ├─ shared/            base, layout, components, + layouts reused by several pages
+│  └─ pages/             one CSS file per page (same name as the page)
+├─ js/
+│  ├─ shared/            config, icons, session, api, ui, layout (sidebar), views
+│  └─ pages/             one JS file per page (same name as the page)
+└─ img/                  campus-building.jpg (sign-in photo)
+```
+
+## Pages (29)
+Sign-in: sign-in, admin-sign-in, new-password, password-saved
+SQRT: sqrt-dashboard, sqrt-student-search, sqrt-student-record, sqrt-new-rescue-report,
+      sqrt-quick-rescue-report, sqrt-report-submitted, sqrt-rescue-reports, sqrt-rescue-report-detail
+Clinic: clinic-dashboard, clinic-sqrt-rescue-reports, clinic-rescue-report-detail,
+        clinic-student-records, clinic-add-student-record, clinic-student-record-created,
+        clinic-student-record, clinic-edit-student-record
+Admin: admin-dashboard, admin-user-accounts, admin-add-account, admin-account-detail,
+       admin-edit-account, admin-deactivate-account, admin-account-deactivated,
+       admin-reactivate-account, admin-access-logs
+
+Every page loads `css/pages/<name>.css` and `js/pages/<name>.js`. Pages link to each
+other through `CARE.url("pageKey", {id})` – all file names live in `js/shared/config.js`.
+
+## Connecting the back end
+All server calls go through `js/shared/api.js`. Every method (signIn, searchStudents,
+getReport, createAccount, …) returns a Promise. Replace the body of `CARE.api.request(name, payload)`
+with your real call (fetch/axios). The expected data shapes are documented at the top of that file.
+Until then every page shows its empty state and a "server is not connected" notice.
+
+Set `REQUIRE_AUTH: true` in `js/shared/config.js` once real sessions exist; pages then
+redirect to sign-in when nobody is signed in. While it is `false` every page opens directly.
+
+## What was cleaned from the Figma
+- All sample people, IDs, reports, dates and counts removed (lists render empty until data arrives).
+- Typos fixed: "Open reocrd", "Add student secord", "Official reocrd", "SQR-014", "Sign in  again".
+- Sidebar label is "Search" on every SQRT page (the design mixed "Search" / "Student search").
+- Account page shows "Reactivate" (not "Deactivate") when the account is inactive.

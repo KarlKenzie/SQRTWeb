@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report submitted · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/pages/sqrt-report-submitted.css">
+</head>
+<body data-role="sqrt" data-nav="reports">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header header--no-back">
+      <div class="header__text">
+        <h1 class="header__title header__title--bold" id="page-title">Report submitted</h1>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card done">
+        <div class="done__icon"><i data-icon="circle-check"></i></div>
+        <h2 class="done__title">Rescue report submitted</h2>
+        <p class="done__text"><strong id="done-code"></strong> for <span id="done-name"></span> is now with the Clinic, marked</p>
+        <p class="done__status">Pending Clinic Review.</p>
+        <div class="done__actions">
+          <a class="btn btn--sm" id="open-record" href="sqrt-student-search.html">Open student record</a>
+          <a class="btn btn--outline btn--sm" id="view-report" href="sqrt-rescue-reports.html">View report</a>
+          <a class="btn btn--outline btn--sm" href="sqrt-dashboard.html">Back to dashboard</a>
+        </div>
+      </section>
+      <section class="banner">
+        <i class="icon banner__icon" data-icon="lock"></i>
+        <div class="banner__body">
+          <h2 class="banner__title">The medical record has not changed.</h2>
+          <p class="banner__text">Only the Clinic can update it.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/sqrt-report-submitted.js"></script>
+</body>
+</html>

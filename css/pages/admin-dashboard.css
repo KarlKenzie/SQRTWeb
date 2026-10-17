@@ -1,0 +1,28 @@
+/* admin-dashboard.html */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 38px; }
+.stat { padding: 18px 28px 18px; min-height: 109px; }
+.stat__label { font-size: 18px; line-height: 24px; }
+.stat__num { margin-top: 0; font-size: 32px; line-height: 40px; font-weight: 700; }
+.stat__sub { font-size: 18px; line-height: 24px; color: var(--muted); }
+.banner--slim { min-height: 60px; padding: 0 30px 0 32px; }
+.banner--slim .banner__title { color: var(--gold); font-size: 18px; }
+.banner--slim .btn { height: 34px; font-size: 16px; padding: 0 22px; background: #eef0f2; border-color: #eef0f2; }
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 12px; }
+.shortcut { padding: 14px 32px 10px; min-height: 88px; }
+.shortcut__title { font-size: 16px; line-height: 20px; font-weight: 600; }
+.shortcut__sub { font-size: 12px; line-height: 16px; color: var(--muted); }
+.shortcut__actions { display: flex; gap: 14px; margin-top: 8px; }
+.shortcut__actions .btn { height: 28px; font-size: 12px; padding: 0 20px; gap: 8px; }
+.shortcut__actions .btn .icon { width: 14px; height: 14px; }
+.activity { margin-top: 6px; padding: 24px 32px 8px; }
+.activity__title { font-size: 22px; line-height: 28px; font-weight: 600; }
+.activity__sub { font-size: 16px; line-height: 22px; color: var(--muted); }
+#activity { margin-top: 10px; }
+.act__row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; border-top: 1px solid #e3e8ee; }
+.act__title { font-size: 18px; line-height: 24px; font-weight: 600; }
+.act__sub { font-size: 14px; line-height: 20px; color: var(--muted); }
+.act__when { display: flex; align-items: center; gap: 24px; font-size: 14px; color: var(--muted); }
+.act__empty { padding: 28px 0 32px; border-top: 1px solid #e3e8ee; font-size: 16px; color: var(--muted); }
+.anote--wide { margin-top: 6px; padding: 8px 16px; border: 1px solid var(--blue); background: #e8f0fb; color: var(--blue); font-size: 14px; }
+.anote--wide .icon { color: var(--blue); }
+.anote--wide strong { color: var(--blue); }

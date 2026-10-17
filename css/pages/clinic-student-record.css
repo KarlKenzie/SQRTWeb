@@ -1,0 +1,5 @@
+/* clinic-student-record.html – card layout comes from shared/student-record.css */
+.content { gap: 22px; }
+.button-row { margin-top: 0; }
+.button-row .btn { height: 48px; min-width: 190px; font-size: 18px; }
+.button-row .btn--outline { min-width: 183px; }

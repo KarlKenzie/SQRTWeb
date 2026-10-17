@@ -1,0 +1,3 @@
+/* admin-reactivate-account.html – account page + confirmation dialog (dialog styles in shared/components.css) */
+.modal { margin-top: 0; }
+.form-error:empty { display: none; }

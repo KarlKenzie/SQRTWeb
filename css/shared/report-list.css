@@ -1,0 +1,18 @@
+
+.sortbar { display: flex; align-items: center; gap: 12px; padding: 30px 58px 36px 58px; }
+.sortbar label { font-size: 16px; color: var(--text); }
+.sortbar .select { width: 239px; height: 34px; padding: 0 40px 0 12px; font-size: 16px; border-radius: 8px; background-size: 18px; background-position: right 12px center; }
+.sortbar--fill .select { background-color: #e4ebf3; border-color: transparent; }
+.sortbar--line .select { border-color: #bfc8d3; border-radius: 6px; }
+
+.reports { padding: 9px 8px 28px; }
+.reports__head, .reports__row { display: grid; align-items: center; text-align: center; }
+.reports__head { height: 44px; margin: 0 4px 6px; border-radius: 8px; background: #e4ebf3; font-size: 14px; color: var(--text); }
+.reports__row { min-height: 56px; margin-bottom: 8px; border: 1px solid var(--card-line); border-radius: 10px; background: var(--white); font-size: 18px; color: var(--muted); }
+.reports__row span { white-space: nowrap; }
+.reports__row--link { cursor: pointer; }
+.reports__row--link:hover { background: #f7f9fc; }
+.reports .is-left { text-align: left; }
+.reports__id { font-weight: 700; }
+.reports__empty { padding: 36px 0 28px; text-align: center; font-size: 16px; color: var(--muted); }
+.list-hint { margin-top: 6px; font-size: 18px; line-height: 24px; color: var(--muted); }

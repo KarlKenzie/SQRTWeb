@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrator sign in · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/auth.css">
+  <link rel="stylesheet" href="../css/pages/admin-sign-in.css">
+</head>
+<body>
+<div class="auth">
+  <aside class="auth__hero auth__hero--admin">
+    <div class="auth__brand">
+      <div class="brand__mark">CARE</div>
+      <div class="brand__sub">Campus Assistance &amp; Response Environment</div>
+      <div class="brand__loc">CTU - Consolacion Campus</div>
+    </div>
+    <div class="auth__message">
+      <h2 class="auth__headline">System <em>administration.</em></h2>
+      <p class="auth__lead">Accounts and access records. No medical information.</p>
+    </div>
+  </aside>
+  <section class="auth__panel">
+    <form class="auth__form" id="admin-form" novalidate>
+      <h1 class="auth__title">Administrator Sign in</h1>
+      <p class="auth__sub">Issued by MIS Office.</p>
+
+      <div class="field">
+        <label class="field__label" for="username">Username</label>
+        <input class="input" id="username" name="username" type="text" autocomplete="username" placeholder="Enter your username" required>
+      </div>
+      <div class="field">
+        <label class="field__label" for="password">Password</label>
+        <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+      </div>
+      <div class="auth__link-row"><a href="new-password.html">Forgot password?</a></div>
+
+      <p class="auth__error" id="form-error" role="alert"></p>
+      <button class="btn auth__submit" type="submit" id="submit-btn">Sign in</button>
+
+      <div class="notice">
+        <i data-icon="lock"></i>
+        <div><strong>Authorized personnel only</strong><span>Administrative actions are logged.</span></div>
+      </div>
+    </form>
+  </section>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/pages/admin-sign-in.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New rescue report · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/report-form.css">
+  <link rel="stylesheet" href="../css/pages/sqrt-new-rescue-report.css">
+</head>
+<body data-role="sqrt" data-nav="reports">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="sqrt-student-search.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">New rescue report</h1>
+        <p class="header__sub" id="page-sub"></p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="banner">
+        <i class="icon banner__icon" data-icon="file-text"></i>
+        <div class="banner__body">
+          <h2 class="banner__title">This report records observations and actions taken by the SQRT responder.</h2>
+          <p class="banner__text">It does not replace a clinical assessment.</p>
+        </div>
+      </section>
+
+      <form class="card form-card" id="report-form" novalidate>
+        <div class="form-card__head">
+          <div>
+            <h2 class="form-card__title">Incident details</h2>
+            <p class="form-card__sub">Submitted to the Clinic for review</p>
+          </div>
+          <span class="source-chip"><i data-icon="activity"></i>SQRT Observation</span>
+        </div>
+        <div class="form-stack">
+          <div class="field"><label class="field__label" for="student">Student</label>
+            <input class="input" id="student" name="student" type="text" readonly></div>
+          <div class="field"><label class="field__label" for="location">Location</label>
+            <input class="input" id="location" name="location" type="text" placeholder="e.g. Gymnasium Court 2" required></div>
+          <div class="field"><label class="field__label" for="reason">Reason for rescue</label>
+            <input class="input" id="reason" name="reason" type="text" placeholder="e.g. Difficulty breathing during PATHFIT drills" required></div>
+          <div class="field"><label class="field__label" for="observed">Observed condition / symptoms</label>
+            <textarea class="textarea" id="observed" name="observed" placeholder="What you observed" required></textarea></div>
+          <div class="field"><label class="field__label" for="actions">Actions taken</label>
+            <textarea class="textarea" id="actions" name="actions" placeholder="What you did" required></textarea></div>
+          <div class="form-row">
+            <div class="field"><label class="field__label" for="when">Date and time</label>
+              <input class="input" id="when" name="when" type="text" required></div>
+            <div class="field"><label class="field__label" for="referred">Referred to clinic?</label>
+              <select class="select" id="referred" name="referred"></select></div>
+          </div>
+          <div class="field"><label class="field__label" for="intervention">Immediate response / intervention</label>
+            <textarea class="textarea textarea--lg" id="intervention" name="intervention" placeholder="Assistance given, and the response"></textarea></div>
+          <div class="field"><label class="field__label" for="notes">Additional notes</label>
+            <textarea class="textarea textarea--xl" id="notes" name="notes" placeholder="Optional"></textarea></div>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+      </form>
+
+      <div class="form-actions">
+        <button class="btn btn--danger btn--wide" type="submit" form="report-form" id="submit-btn"><i data-icon="circle-check"></i>Submit report</button>
+        <a class="btn btn--wide" id="switch-quick" href="sqrt-quick-rescue-report.html"><i data-icon="activity"></i>Switch to quick report</a>
+        <a class="btn btn--outline" id="cancel" href="sqrt-student-search.html" style="min-width:182px">Cancel</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/sqrt-new-rescue-report.js"></script>
+</body>
+</html>

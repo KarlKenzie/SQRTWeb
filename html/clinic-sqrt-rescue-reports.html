@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQRT rescue reports · CARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared/base.css">
+  <link rel="stylesheet" href="../css/shared/layout.css">
+  <link rel="stylesheet" href="../css/shared/components.css">
+  <link rel="stylesheet" href="../css/shared/report-list.css">
+  <link rel="stylesheet" href="../css/pages/clinic-sqrt-rescue-reports.css">
+</head>
+<body data-role="clinic" data-nav="reports">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="main">
+    <header class="header">
+    <button class="back-btn" type="button" data-back="clinic-dashboard.html" aria-label="Go back"><i data-icon="arrow-left-circle"></i></button>
+      <div class="header__text">
+        <h1 class="header__title" id="page-title">Rescue reports</h1>
+        <p class="header__sub" id="page-sub">From the SQRT</p>
+      </div>
+    </header>
+    <main class="content" id="content">
+      <section class="card sortbar sortbar--line">
+        <label for="sort">Sort by</label>
+        <select class="select" id="sort"></select>
+      </section>
+      <section class="card reports">
+        <div class="reports__head"><span class="is-left">Report ID</span><span>Student</span><span>Date and time</span><span>Submitted by</span><span>Status</span><span></span></div>
+        <div id="rows"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  <script src="../js/shared/config.js"></script>
+  <script src="../js/shared/icons.js"></script>
+  <script src="../js/shared/session.js"></script>
+  <script src="../js/shared/api.js"></script>
+  <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/layout.js"></script>
+  <script src="../js/shared/views.js"></script>
+  <script src="../js/pages/clinic-sqrt-rescue-reports.js"></script>
+</body>
+</html>

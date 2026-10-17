@@ -1,0 +1,7 @@
+/* sign-in.html – SQRT / Clinic sign-in. Tab control lives in shared/auth-tabs.css */
+.auth__form .tabs { margin-top: 31px; }
+.auth__form .field { margin-top: 31px; }
+.auth__form .field + .field { margin-top: 31px; }
+.auth__link-row { margin-top: 18px; }
+.auth__submit { margin-top: 33px; }
+.auth__error { margin-top: 12px; }

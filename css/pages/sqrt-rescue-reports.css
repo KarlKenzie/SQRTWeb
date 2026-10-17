@@ -1,0 +1,4 @@
+/* sqrt-rescue-reports.html – table styles come from shared/report-list.css */
+.reports__head, .reports__row { grid-template-columns: 147px 250px 366px 206px 386px 1fr; padding-left: 37px; }
+.reports__head { padding-left: 33px; }
+.sortbar { padding-left: 44px; }

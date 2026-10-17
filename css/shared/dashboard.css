@@ -1,0 +1,22 @@
+/* ==========================================================================
+   CARE – dashboard.css : find-a-student card, plain banners, recent list
+   Used by sqrt-dashboard.html and clinic-dashboard.html
+   ========================================================================== */
+.panel { padding: 36px 31px 32px; }
+.panel .card__title { line-height: 26px; }
+.panel .card__sub { margin-top: 4px; }
+.find__row { display: flex; gap: 22px; margin-top: 24px; }
+.find__row .input { flex: 1; height: 57px; font-size: 18px; }
+.find__row .btn { width: 217px; height: 55px; flex: none; }
+.banner--plain { padding: 0 38px 0 37px; min-height: 124px; }
+.banner--plain .banner__title { font-size: 20px; line-height: 26px; }
+.banner--plain .banner__text { margin-top: 4px; font-size: 18px; line-height: 24px; }
+.banner--plain .btn { width: 217px; flex: none; }
+.recent { padding: 36px 0 0; overflow: hidden; }
+.recent__head { display: flex; align-items: flex-start; justify-content: space-between; padding: 0 31px 0 39px; }
+.recent__list { margin-top: 20px; }
+.recent__row { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 83px; padding: 0 31px 0 39px; border-top: 1px solid #ebecef; }
+.recent__row:hover { background: #f7f9fc; }
+.recent__title { font-size: 20px; line-height: 26px; font-weight: 700; }
+.recent__sub { margin-top: 4px; font-size: 18px; line-height: 24px; color: var(--muted); }
+.recent__empty { padding: 28px 39px 36px; border-top: 1px solid #ebecef; font-size: 16px; color: var(--muted); }
