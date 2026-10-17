@@ -20,9 +20,19 @@
 
   function fieldOf(input) { return input.closest(".field") || input.parentNode; }
 
+  /* Permanent hint under the field. It is hidden while an error/status message is showing. */
+  function addHint(input, text) {
+    var host = fieldOf(input);
+    var h = document.createElement("div");
+    h.className = "field__hint"; h.setAttribute("data-hint-for", input.id); h.textContent = text;
+    host.appendChild(h);
+  }
+
   function message(input, text, kind) {
     var host = fieldOf(input);
     var el = host.querySelector(".field__error[data-for='" + input.id + "']");
+    var hint = host.querySelector(".field__hint[data-hint-for='" + input.id + "']");
+    if (hint) hint.hidden = !!text;
     if (!text) { if (el) el.remove(); return; }
     if (!el) {
       el = document.createElement("div");
@@ -47,6 +57,7 @@
       clearTimeout(timer);
       timer = setTimeout(function () { input.classList.remove("is-invalid"); message(input, ""); }, 2500);
     }
+    addHint(input, "Letters only. Numbers are not allowed.");
     input.addEventListener("input", clean);
     input.addEventListener("blur", clean);
     input.setAttribute("inputmode", "text");
@@ -79,6 +90,7 @@
       });
     }
 
+    addHint(input, "No spaces. Must be unique.");
     input.addEventListener("input", function () {
       var v = input.value, clean = v.toLowerCase().replace(/[^a-z0-9._-]/g, "");
       if (clean !== v.toLowerCase()) {
