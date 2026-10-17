@@ -125,6 +125,10 @@
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   var EMAIL_DOMAIN = "gmail.com"; // only Gmail addresses are accepted
   var EMAIL_BAD_MSG = "Email must be a Gmail address ending in @gmail.com.";
+  function emailMsg(v) {
+    if (v.indexOf("@") === -1) return "Add @gmail.com at the end. Only the username was entered.";
+    return EMAIL_BAD_MSG;
+  }
   function emailOk(v) { return EMAIL_RE.test(v) && v.toLowerCase().slice(-(EMAIL_DOMAIN.length + 1)) === "@" + EMAIL_DOMAIN && v.indexOf("@") === v.length - EMAIL_DOMAIN.length - 1; }
   var EMAIL_TAKEN_MSG = "This email is already used by another account.";
 
@@ -140,17 +144,15 @@
     function check() {
       var v = input.value.trim().toLowerCase();
       if (!v) { set("idle", ""); return; }
-      if (!emailOk(v)) { set("bad", EMAIL_BAD_MSG); return; }
+      if (!emailOk(v)) { set("bad", emailMsg(v)); return; }
       var mine = ++seq;
       CARE.api.checkEmail({ email: v, excludeId: excludeId || undefined }).then(function (res) {
         if (mine !== seq) return;
         if (res && res.available === false) set("taken", EMAIL_TAKEN_MSG);
-        else if (res && res.available === true) set("free", "Email is available.", "ok");
         else set("idle", "");
       }, function () { if (mine === seq) set("idle", ""); });
     }
 
-    addHint(input, "Must be a Gmail address, like name@gmail.com. No spaces. Must be unique.");
     input.addEventListener("input", function () {
       var v = input.value;
       if (/\s/.test(v)) { input.value = v.replace(/\s+/g, ""); }
@@ -161,11 +163,11 @@
 
     if (form) form.addEventListener("submit", function (e) {
       var v = input.value.trim();
-      if (v && !emailOk(v)) set("bad", EMAIL_BAD_MSG);
+      if (v && !emailOk(v)) set("bad", emailMsg(v));
       if (state === "taken" || state === "bad") {
         e.preventDefault(); e.stopImmediatePropagation(); input.focus();
         var err = document.getElementById("form-error");
-        if (err) err.textContent = state === "taken" ? EMAIL_TAKEN_MSG : EMAIL_BAD_MSG;
+        if (err) err.textContent = state === "taken" ? EMAIL_TAKEN_MSG : emailMsg(v);
       }
     });
     input._careEmail = { markTaken: function () { set("taken", EMAIL_TAKEN_MSG); } };
