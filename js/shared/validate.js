@@ -60,7 +60,6 @@
       clearTimeout(timer);
       timer = setTimeout(function () { input.classList.remove("is-invalid"); message(input, ""); }, 2500);
     }
-    addHint(input, "Letters only. Numbers are not allowed.");
     input.addEventListener("input", clean);
     input.addEventListener("blur", clean);
     input.setAttribute("inputmode", "text");
@@ -93,7 +92,6 @@
       });
     }
 
-    addHint(input, "No spaces. Must be unique.");
     input.addEventListener("input", function () {
       var v = input.value, clean = v.toLowerCase().replace(/[^a-z0-9._-]/g, "");
       if (clean !== v.toLowerCase()) {
