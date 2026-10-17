@@ -9,25 +9,25 @@
     sqrt: {
       badge: { cls: "sqrt", icon: "shield-plus", label: "SQRT Responder" },
       items: [
-        { key: "dashboard", label: "Dashboard",      icon: "home",      page: "sqrtDashboard" },
-        { key: "search",    label: "Search",         icon: "search",    page: "sqrtStudentSearch" },
-        { key: "reports",   label: "Rescue reports", icon: "file-text", page: "sqrtRescueReports" }
+        { key: "dashboard", label: "Dashboard",      short: "Dashboard", icon: "home",      page: "sqrtDashboard" },
+        { key: "search",    label: "Search",         short: "Search",    icon: "search",    page: "sqrtStudentSearch" },
+        { key: "reports",   label: "Rescue reports", short: "Reports",   icon: "file-text", page: "sqrtRescueReports" }
       ]
     },
     clinic: {
       badge: { cls: "clinic", icon: "shield-plus", label: "Clinic Staff" },
       items: [
-        { key: "dashboard", label: "Dashboard",           icon: "home",     page: "clinicDashboard" },
-        { key: "records",   label: "Student records",     icon: "users",    page: "clinicStudentRecords" },
-        { key: "reports",   label: "SQRT rescue reports", icon: "activity", page: "clinicSqrtRescueReports" }
+        { key: "dashboard", label: "Dashboard",           short: "Dashboard", icon: "home",     page: "clinicDashboard" },
+        { key: "records",   label: "Student records",     short: "Records",   icon: "users",    page: "clinicStudentRecords" },
+        { key: "reports",   label: "SQRT rescue reports", short: "Reports",   icon: "activity", page: "clinicSqrtRescueReports" }
       ]
     },
     admin: {
       badge: { cls: "admin", icon: "lock", label: "Administrator" },
       items: [
-        { key: "dashboard", label: "Dashboard",     icon: "home",  page: "adminDashboard" },
-        { key: "accounts",  label: "User accounts", icon: "users", page: "adminUserAccounts" },
-        { key: "logs",      label: "Access logs",   icon: "clock", page: "adminAccessLogs" }
+        { key: "dashboard", label: "Dashboard",     short: "Dashboard", icon: "home",  page: "adminDashboard" },
+        { key: "accounts",  label: "User accounts", short: "User",      icon: "users", page: "adminUserAccounts" },
+        { key: "logs",      label: "Access logs",   short: "Access",    icon: "clock", page: "adminAccessLogs" }
       ]
     }
   };
@@ -55,6 +55,16 @@
         '<button type="button" class="signout" id="signout">' + CARE.icons.html("log-out") + "<span>Sign Out</span></button>" +
       "</div>"
     );
+  }
+
+  /* Bottom tab bar shown on phones and small tablets (the sidebar is hidden there) */
+  function tabbarHtml(role, active) {
+    var items = ROLES[role].items.map(function (it) {
+      var on = it.key === active;
+      return '<a class="tabbar__item' + (on ? " is-active" : "") + '" href="' + CARE.url(it.page) + '"' + (on ? ' aria-current="page"' : "") + ">" +
+        CARE.icons.html(it.icon) + "<span>" + it.short + "</span></a>";
+    }).join("");
+    return items + '<button type="button" class="tabbar__item" id="tabbar-signout">' + CARE.icons.html("log-out") + "<span>Sign out</span></button>";
   }
 
   function paintUser() {
@@ -138,10 +148,18 @@
       aside.innerHTML = sidebarHtml(role, body.getAttribute("data-nav"));
       paintUser();
       initMobileNav();
-      document.getElementById("signout").addEventListener("click", function () {
+      var doSignOut = function () {
         var done = function () { CARE.session.clear(); CARE.go(role === "admin" ? "adminSignIn" : "signIn"); };
         CARE.api.signOut().then(done, done);
-      });
+      };
+      document.getElementById("signout").addEventListener("click", doSignOut);
+
+      var bar = document.createElement("nav");
+      bar.className = "tabbar"; bar.setAttribute("aria-label", "Main");
+      bar.innerHTML = tabbarHtml(role, body.getAttribute("data-nav"));
+      body.appendChild(bar);
+      CARE.icons.render(bar);
+      document.getElementById("tabbar-signout").addEventListener("click", doSignOut);
     }
 
     initTableLabels();

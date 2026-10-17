@@ -11,7 +11,7 @@
    ========================================================================== */
 
 /* The menu button, drawer close button and scrim only exist on small screens */
-.menu-btn, .sidebar__close, .scrim { display: none; }
+.menu-btn, .sidebar__close, .scrim, .tabbar { display: none; }
 
 /* ---------- ≤ 1500px : small laptops ---------- */
 @media (max-width: 1500px) {
@@ -197,6 +197,29 @@
   .table__head > span:empty, .atable__head > span:empty, .reports__head > span:empty { display: none; }
 }
 
+/* ---------- ≤ 900px : bottom tab bar replaces the sidebar / 3-line menu ---------- */
+@media (max-width: 900px) {
+  .sidebar, .scrim, .menu-btn { display: none !important; }
+  body.nav-open { overflow: auto; }
+  .app { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+  .tabbar {
+    display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    height: calc(64px + env(safe-area-inset-bottom)); padding: 0 4px env(safe-area-inset-bottom);
+    background: var(--white); border-top: 1px solid #d5dde7; box-shadow: 0 -2px 12px rgba(11,37,69,.08);
+  }
+  .tabbar__item {
+    flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    padding: 6px 2px 0; border: 0; background: none; font: inherit; font-size: 12px; line-height: 16px; font-weight: 500;
+    color: #5b6b80; text-decoration: none; cursor: pointer;
+  }
+  .tabbar__item .icon { width: 24px; height: 24px; stroke-width: 1.8; }
+  .tabbar__item span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tabbar__item.is-active { color: var(--blue); font-weight: 700; }
+  .tabbar__item:active { background: var(--blue-soft); }
+  .tabbar__item:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+  .toast-stack { bottom: calc(76px + env(safe-area-inset-bottom)); }
+}
+
 /* ---------- ≤ 600px : phones ---------- */
 @media (max-width: 600px) {
   body { font-size: 15px; }
@@ -285,7 +308,7 @@
   .modal__facts { grid-template-columns: 1fr 1fr; }
   .modal__title { font-size: 20px; line-height: 26px; }
 
-  .toast-stack { left: 12px; right: 12px; bottom: 12px; }
+  .toast-stack { left: 12px; right: 12px; }
   .toast { max-width: none; }
 
   /* auth */
