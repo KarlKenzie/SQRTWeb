@@ -53,6 +53,9 @@
     data.id = id;
     ui.busy(btn, CARE.api.updateAccount(data)).then(function () {
       CARE.go("adminAccountDetail", { id: id, notice: "saved" });
-    }).catch(function (err) { error.textContent = err.message; ui.fail(err); });
+    }).catch(function (err) {
+      if (CARE.validate.serverError(err, form.username, error)) return;
+      error.textContent = err.message; ui.fail(err);
+    });
   });
 })();

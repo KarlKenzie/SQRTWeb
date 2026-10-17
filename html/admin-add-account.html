@@ -30,11 +30,11 @@
         <p class="aform__sub">The role sets what this person can reach.</p>
         <div class="aform__grid">
           <div class="field"><label class="field__label" for="firstName">First name</label>
-            <input class="input" id="firstName" name="firstName" type="text" required></div>
+            <input class="input" id="firstName" data-no-digits name="firstName" type="text" required></div>
           <div class="field"><label class="field__label" for="lastName">Last name</label>
-            <input class="input" id="lastName" name="lastName" type="text" required></div>
+            <input class="input" id="lastName" data-no-digits name="lastName" type="text" required></div>
           <div class="field"><label class="field__label" for="username">Username</label>
-            <input class="input input--mono" id="username" name="username" type="text" placeholder="sqrt.surname" autocomplete="off" autocapitalize="off" required>
+            <input class="input input--mono" id="username" data-username-check name="username" type="text" placeholder="sqrt.surname" autocomplete="off" autocapitalize="off" required>
             <span class="field__hint">Prefix with the role: sqrt.clinic.admin</span></div>
           <div class="field"><label class="field__label" for="role">Role</label>
             <select class="select" id="role" name="role" required></select></div>
@@ -73,6 +73,7 @@
   <script src="../js/shared/session.js"></script>
   <script src="../js/shared/api.js"></script>
   <script src="../js/shared/ui.js"></script>
+  <script src="../js/shared/validate.js"></script>
   <script src="../js/shared/layout.js"></script>
   <script src="../js/shared/views.js"></script>
   <script src="../js/pages/admin-add-account.js"></script>

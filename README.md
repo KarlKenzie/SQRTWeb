@@ -50,3 +50,8 @@ redirect to sign-in when nobody is signed in. While it is `false` every page ope
 - 1100px and below: the sidebar becomes a slide-in drawer opened by the 3-line menu button in the header (built by `js/shared/layout.js`).
 - 900px and below: tables become stacked cards (column titles are copied onto each cell by `layout.js`).
 - 600px and below: single column layouts and full-width buttons.
+
+## Field rules (`js/shared/validate.js`)
+- `data-no-digits` on a text input blocks numbers (used on every first/last name field).
+- `data-username-check` on the username input limits it to a-z, 0-9, `.` `_` `-`, and checks for duplicates through `CARE.api.checkUsername({ username, excludeId })` -> `{ available: boolean }`. The form will not submit while the name is taken. If create/update fails with error code `USERNAME_TAKEN`, the form shows the same message.
+- To apply either rule to another field, add the attribute to the input and load `validate.js`.

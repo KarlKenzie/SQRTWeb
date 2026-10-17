@@ -66,6 +66,7 @@
     "saveAssessment",       // { reportId, text } -> report   (marks it resolved)
     /* Admin */
     "getAdminDashboard",    // () -> { accountCount, activeCount, sqrtCount, clinicCount, logCount, failedCount, recent:[logEntry] }
+    "checkUsername",        // { username, excludeId? } -> { available: boolean }   (false when another account already uses it)
     "listAccounts",         // { q, role, status } -> { total, accounts:[account] }
     "getAccount",           // { id } -> account & { activity:[logEntry] }
     "createAccount",        // account fields + password -> account

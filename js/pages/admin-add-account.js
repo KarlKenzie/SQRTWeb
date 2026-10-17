@@ -47,6 +47,9 @@
     data.password = pw.textContent;
     ui.busy(btn, CARE.api.createAccount(data)).then(function (a) {
       CARE.go("adminAccountDetail", { id: a.id, notice: "created" });
-    }).catch(function (err) { error.textContent = err.message; ui.fail(err); });
+    }).catch(function (err) {
+      if (CARE.validate.serverError(err, form.username, error)) return;
+      error.textContent = err.message; ui.fail(err);
+    });
   });
 })();
