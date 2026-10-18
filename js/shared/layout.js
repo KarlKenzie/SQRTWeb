@@ -70,7 +70,8 @@
   function paintUser() {
     var u = CARE.session.user();
     var $ = CARE.ui.$;
-    if (!u) { $("#sidebar-user").style.visibility = "hidden"; return; }
+    if (!u) { $("#sidebar-user").hidden = true; return; }
+    $("#sidebar-user").hidden = false;
     var roleLabel = { sqrt: "SQRT responder", clinic: "Clinic Staff", admin: "Administrator" }[u.role] || "";
     $("#user-initials").textContent = CARE.ui.initials(u.name);
     $("#user-name").textContent = u.name || "";

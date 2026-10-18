@@ -41,12 +41,15 @@
 .nav__item.is-active .icon { color: var(--gold); }
 
 .sidebar__foot { margin-top: auto; }
+.user[hidden] { display: none; }
 .user { display: flex; align-items: center; gap: 15px; margin-left: 7px; }
 .user__avatar {
   flex: none; width: 55px; height: 55px; border-radius: var(--radius-sm);
   display: grid; place-items: center;
   background: var(--blue-nav); font-size: 20px; font-weight: 500; color: #e8eef6;
 }
+.user > div:last-child { min-width: 0; }
+.user__name, .user__meta { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .user__name { font-size: 15px; font-weight: 700; line-height: 20px; }
 .user__meta { font-size: 14px; line-height: 20px; color: #8da0b8; }
 .signout {

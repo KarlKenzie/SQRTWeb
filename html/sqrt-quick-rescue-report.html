@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../css/shared/components.css">
   <link rel="stylesheet" href="../css/shared/report-form.css">
   <link rel="stylesheet" href="../css/pages/sqrt-quick-rescue-report.css">
-  <link rel="stylesheet" href="../css/shared/responsive.css?v=9">
+  <link rel="stylesheet" href="../css/shared/responsive.css?v=10">
 </head>
 <body data-role="sqrt" data-nav="reports">
 <div class="app">
@@ -43,12 +43,12 @@
         </div>
         <div class="form-stack">
           <div class="field"><label class="field__label" for="student">Student</label>
-            <input class="input" id="student" name="student" type="text" list="student-options" placeholder="Type last name, first name or student ID" autocomplete="off" required>
+            <input class="input" id="student" name="student" type="text" list="student-options" placeholder="Last name or student ID" autocomplete="off" required>
             <datalist id="student-options"></datalist></div>
           <div class="field"><label class="field__label" for="location">Location</label>
             <input class="input" id="location" name="location" type="text" placeholder="e.g. Gymnasium Court 2" required></div>
           <div class="field"><label class="field__label" for="reason">Reason for rescue</label>
-            <input class="input" id="reason" name="reason" type="text" placeholder="e.g. Difficulty breathing during PE drills" required></div>
+            <input class="input" id="reason" name="reason" type="text" placeholder="e.g. Difficulty breathing" required></div>
           <div class="field"><label class="field__label" for="observed">Observed condition / symptoms</label>
             <textarea class="textarea" id="observed" name="observed" placeholder="What you observed" required></textarea></div>
           <div class="field"><label class="field__label" for="actions">Actions taken</label>
@@ -71,7 +71,7 @@
   <script src="../js/shared/session.js"></script>
   <script src="../js/shared/api.js"></script>
   <script src="../js/shared/ui.js"></script>
-  <script src="../js/shared/layout.js?v=9"></script>
+  <script src="../js/shared/layout.js?v=10"></script>
   <script src="../js/shared/views.js"></script>
   <script src="../js/pages/sqrt-quick-rescue-report.js"></script>
 </body>

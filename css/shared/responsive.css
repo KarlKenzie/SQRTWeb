@@ -13,6 +13,39 @@
 /* The menu button, drawer close button and scrim only exist on small screens */
 .menu-btn, .sidebar__close, .scrim, .tabbar { display: none; }
 
+
+/* ==========================================================================
+   FIELDS – keep text and placeholders from being cut off
+   ========================================================================== */
+.input, .select, .textarea { min-width: 0; text-overflow: ellipsis; }
+.select {
+  padding-left: 16px; padding-right: 40px; background-position: right 12px center; background-size: 20px;
+  white-space: nowrap; overflow: hidden;
+}
+.input { padding-left: 16px; padding-right: 16px; }
+.textarea { padding-left: 16px; padding-right: 16px; }
+.filters .select, .afilters .select, .sform .select, .aform .select, .form-card .select { font-size: 16px; }
+.filters .input, .afilters .input, .sform .input, .aform .input, .form-card .input { font-size: 16px; }
+.field__label { overflow-wrap: anywhere; }
+
+/* Find a student: the box must hold a full student ID (12-13 characters) */
+.find__row { flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+.find__row .input, .panel .find__row .input { flex: 1 1 260px; min-width: 240px; font-size: 16px; }
+.find__row .btn, .panel .find__row .btn { flex: 0 0 auto; width: auto; min-width: 150px; padding: 0 24px; }
+
+/* Student record form: sensible column shares instead of fixed pixels */
+@media (min-width: 1301px) {
+  .sform__row4 { grid-template-columns: minmax(0,1.3fr) minmax(0,2.6fr) minmax(0,1.2fr) minmax(0,1.2fr) !important; }
+  .filters__grid--students { grid-template-columns: minmax(0,2.2fr) minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr); }
+}
+/* Narrower screens: filters and the 4-field row use two columns */
+@media (max-width: 1300px) {
+  .sform__row4 { grid-template-columns: 1fr 1fr !important; }
+  .filters__grid--students, .afilters__grid { grid-template-columns: 1fr 1fr !important; }
+  .filters__grid--students .field:first-child, .afilters__grid .field:first-child { grid-column: 1 / -1; }
+  .duo, .clinic-duo { grid-template-columns: 1fr !important; }
+}
+
 /* ---------- ≤ 1500px : small laptops ---------- */
 @media (max-width: 1500px) {
   :root { --sidebar-w: 276px; }
@@ -124,9 +157,6 @@
   .rr-summary__facts { grid-template-columns: 1fr 1fr; gap: 16px 24px; }
   .rr-grid { gap: 20px 32px; }
   .sform__row4 { grid-template-columns: 1fr 1fr !important; }
-  .filters__grid--students { grid-template-columns: 1fr 1fr 1fr; }
-  .filters__grid--students .field:first-child { grid-column: 1 / -1; }
-  .afilters__grid { grid-template-columns: 1fr 1fr !important; }
 
   /* roomier padding goes */
   .form-card { padding: 28px; }
