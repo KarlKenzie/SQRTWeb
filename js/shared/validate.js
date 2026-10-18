@@ -124,7 +124,7 @@
   var EMAIL_DOMAIN = "gmail.com"; // only Gmail addresses are accepted
   var EMAIL_BAD_MSG = "Email must be a Gmail address ending in @gmail.com.";
   function emailMsg(v) {
-    if (v.indexOf("@") === -1) return "Add @gmail.com at the end. Only the username was entered.";
+    if (v.indexOf("@") === -1) return "Add @gmail.com at the end of your email.";
     return EMAIL_BAD_MSG;
   }
   function emailOk(v) { return EMAIL_RE.test(v) && v.toLowerCase().slice(-(EMAIL_DOMAIN.length + 1)) === "@" + EMAIL_DOMAIN && v.indexOf("@") === v.length - EMAIL_DOMAIN.length - 1; }
@@ -143,6 +143,7 @@
       var v = input.value.trim().toLowerCase();
       if (!v) { set("idle", ""); return; }
       if (!emailOk(v)) { set("bad", emailMsg(v)); return; }
+      if (!input.hasAttribute("data-email-check")) { set("idle", ""); return; } // format only
       var mine = ++seq;
       CARE.api.checkEmail({ email: v, excludeId: excludeId || undefined }).then(function (res) {
         if (mine !== seq) return;
@@ -194,7 +195,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     Array.prototype.forEach.call(document.querySelectorAll("[data-no-digits]"), initNoDigits);
     Array.prototype.forEach.call(document.querySelectorAll("[data-username-check]"), initUsername);
-    Array.prototype.forEach.call(document.querySelectorAll("[data-email-check]"), initEmail);
+    Array.prototype.forEach.call(document.querySelectorAll("[data-email-check],[data-email-format]"), initEmail);
   });
 
   CARE.validate = V;

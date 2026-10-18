@@ -45,7 +45,7 @@
     /* auth */
     "signIn",               // { role, username, password } -> { user, mustChangePassword }
     "signOut",              // () -> void
-    "requestPasswordReset", // { username } -> void   (tells the clinic/admin; answer must be the same whether or not the username exists)
+    "resetPassword",        // { schoolId, email } -> { password }   server checks the pair, sets a new one-time password (must change on next sign-in) and returns it ONCE. Error code NO_MATCH when the pair is wrong.
     "setPassword",          // { password, token? } -> void
     /* lookups for dropdowns */
     "getPrograms",          // () -> [{ code, name }]

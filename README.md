@@ -58,7 +58,4 @@ redirect to sign-in when nobody is signed in. While it is `false` every page ope
 - To apply either rule to another field, add the attribute to the input and load `validate.js`.
 
 ## Forgot password
-`html/forgot-password.html` (30th page) asks for the username and calls `CARE.api.requestPasswordReset({ username })`. The back end should notify the clinic/admin, who issue a temporary password; the user then signs in with it and lands on `new-password.html`. The reply must be the same whether or not the username exists.
-
-## Signed-in user card
-The name/role card above "Sign Out" is filled from the user returned by `CARE.api.signIn` (stored by `CARE.session.set`). It stays hidden until there is a signed-in user.
+`html/forgot-password.html` asks for the school ID and Gmail address and calls `CARE.api.resetPassword({ schoolId, email })`. The back end checks that the pair matches an account, sets a new one-time password (forced change on next sign-in) and returns `{ password }`. The page shows it once in a pop-up with Copy and "Go to sign in". A wrong pair should fail with error code `NO_MATCH`; the page shows one generic message for every mismatch. Nothing is generated or checked in the browser.
